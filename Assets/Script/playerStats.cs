@@ -88,7 +88,7 @@ public class playerStats : MonoBehaviour
             this.textBox[i].GetComponent<Text>().text = "";
         }
 
-        this.attacks[4].GetComponent<Text>().text = "Skip Turn";
+        this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
     }
     public void deactivateAttackButton() 
     {
@@ -105,7 +105,7 @@ public class playerStats : MonoBehaviour
     {
         if (!this.attackSelection[0])
         {
-            this.attacks[4].GetComponent<Text>().text = "Send Attack";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Send Attack";
             this.selectedState.SetActive(true);
             this.textBox[0].GetComponent<Text>().text = this.attackDico.manager[this.attacks[0].GetComponentInChildren<Text>().text].description;
             this.selectedState.transform.localPosition = this.attacks[0].transform.localPosition;
@@ -116,7 +116,7 @@ public class playerStats : MonoBehaviour
         }
         else
         {
-            this.attacks[4].GetComponent<Text>().text = "Skip Turn";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
             this.attackSelection[0] = false;
             this.attackSelection[1] = false;
             this.attackSelection[2] = false;
@@ -131,7 +131,7 @@ public class playerStats : MonoBehaviour
     {
         if (!this.attackSelection[1])
         {
-            this.attacks[4].GetComponent<Text>().text = "Send Attack";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Send Attack";
             this.selectedState.SetActive(true);
             this.textBox[0].GetComponent<Text>().text = this.attackDico.manager[this.attacks[1].GetComponentInChildren<Text>().text].description;
             this.selectedState.transform.localPosition = this.attacks[1].transform.localPosition;
@@ -142,7 +142,7 @@ public class playerStats : MonoBehaviour
         }
         else
         {
-            this.attacks[4].GetComponent<Text>().text = "Skip Turn";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
             this.attackSelection[0] = false;
             this.attackSelection[1] = false;
             this.attackSelection[2] = false;
@@ -156,7 +156,7 @@ public class playerStats : MonoBehaviour
     {
         if (!this.attackSelection[2])
         {
-            this.attacks[4].GetComponent<Text>().text = "Send Attack";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Send Attack";
             this.selectedState.SetActive(true);
             this.textBox[0].GetComponent<Text>().text = this.attackDico.manager[this.attacks[2].GetComponentInChildren<Text>().text].description;
             this.selectedState.transform.localPosition = this.attacks[2].transform.localPosition;
@@ -167,7 +167,7 @@ public class playerStats : MonoBehaviour
         }
         else
         {
-            this.attacks[4].GetComponent<Text>().text = "Skip Turn";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
             this.attackSelection[0] = false;
             this.attackSelection[1] = false;
             this.attackSelection[2] = false;
@@ -181,7 +181,7 @@ public class playerStats : MonoBehaviour
     {
         if (!this.attackSelection[3])
         {
-            this.attacks[4].GetComponent<Text>().text = "Send Attack";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Send Attack";
             this.selectedState.SetActive(true);
             this.textBox[0].GetComponent<Text>().text = this.attackDico.manager[this.attacks[3].GetComponentInChildren<Text>().text].description;
             this.selectedState.transform.localPosition = this.attacks[3].transform.localPosition;
@@ -192,7 +192,7 @@ public class playerStats : MonoBehaviour
         }
         else
         {
-            this.attacks[4].GetComponent<Text>().text = "Skip Turn";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
             this.attackSelection[0] = false;
             this.attackSelection[1] = false;
             this.attackSelection[2] = false;
@@ -209,8 +209,11 @@ public class playerStats : MonoBehaviour
             if (this.attackSelection[i])
             {
                 if (this.currentLikes - this.attackDico.manager[this.attacks[i].GetComponentInChildren<Text>().text].likeCost < 0)
+                {
+                    Debug.Log("TOO MANY LIKES COSTING");
                     return;
-                    
+                }
+
                 this.currentLikes += this.attackDico.manager[this.attacks[i].GetComponentInChildren<Text>().text].LikeGain;
                 this.currentLikes -= this.attackDico.manager[this.attacks[i].GetComponentInChildren<Text>().text].likeCost;
                 this.enemy.currentHealth -= this.attackDico.manager[this.attacks[i].GetComponentInChildren<Text>().text].Damage;
@@ -223,24 +226,33 @@ public class playerStats : MonoBehaviour
         if (this.enemy.currentHealth <= 0)
         {
             this.backToNormal();
+            return;
         }
         else if(hasAttack)
         {
-            for (int i = 0; i < this.textBox.Length - 1; i++)
+            for (int i = this.textBox.Length - 2; i >= 0; i--)
             {
-                this.textBox[i + 1] = this.textBox[i];
+                this.textBox[i + 1].GetComponent<Text>().text = this.textBox[i].GetComponent<Text>().text;
+                this.textBox[i + 1].GetComponent<Text>().alignment = this.textBox[i].GetComponent<Text>().alignment;
             }
 
             this.textBox[0].GetComponent<Text>().text = "";
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
             this.selectedState.SetActive(false);
+            this.hasAttack = false;
+            return;
         }
         else 
         {
-            this.textBox[2].GetComponent<Text>().text = this.textBox[1].GetComponent<Text>().text;
             this.textBox[3].GetComponent<Text>().text = this.textBox[2].GetComponent<Text>().text;
+            this.textBox[3].GetComponent<Text>().alignment = this.textBox[2].GetComponent<Text>().alignment;
+            this.textBox[2].GetComponent<Text>().text = this.textBox[1].GetComponent<Text>().text;
+            this.textBox[2].GetComponent<Text>().alignment = this.textBox[1].GetComponent<Text>().alignment;
             this.textBox[1].GetComponent<Text>().text = this.enemy.enemyAttack();
             this.textBox[1].GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
             this.selectedState.SetActive(false);
+            this.attacks[4].GetComponentInChildren<Text>().text = "Skip Turn";
+            return;
         }
 
     }
