@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3993502569383277510}
   m_Layer: 0
   m_Name: Blue Screen
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

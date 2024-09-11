@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fc04c0d891e95c4e8a341bb08ac69c8, type: 3}
-  m_Name: Playerentity
+  m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
+  m_Name: POG
   m_EditorClassIdentifier: 
-  health: 20
-  likes: 50
-  nameAttack1: basic
-  nameAttack2: strong
-  nameAttack3: likes
-  nameAttack4: lol
+  Damage: 1
+  LikeDamege: 0
+  LikeGain: 0
+  likeCost: 0
+  description: OMG POG le youtubeur ?

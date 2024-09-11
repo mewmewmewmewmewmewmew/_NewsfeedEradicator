@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Icon
   - Manager
+  - Upgrade
+  - Cat
+  - Dog
   layers:
   - Default
   - TransparentFX

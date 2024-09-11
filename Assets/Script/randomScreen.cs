@@ -21,7 +21,9 @@ public class randomScreen : MonoBehaviour
     private System.Random genereator;
 
     public playerStats playerStats;
-    // Start is called before the first frame update
+    public upgradeAtatcks upgradeAtatcks;
+    public bonusManager bonusManager;
+
     void Start()
     {
         this.sideScreens = new GameObject[3];
@@ -38,11 +40,16 @@ public class randomScreen : MonoBehaviour
 
         this.currentScreen = Instantiate(this.prefabList[genereator.Next(length)], new Vector3(0, 0, 0), Quaternion.identity);
 
-        while (this.currentScreen.CompareTag("Enemy"))
+        while (this.currentScreen.CompareTag("Enemy") || this.currentScreen.CompareTag("Upgrade") || this.currentScreen.CompareTag("Cat") || this.currentScreen.CompareTag("Dog"))
         {
             DestroyImmediate(this.currentScreen, true);
             this.currentScreen = Instantiate(this.prefabList[genereator.Next(length)], new Vector3(0, 0, 0), Quaternion.identity);
-        }   
+        }
+
+        for (int i = 0; i < this.icons.Length; i++)
+        {
+            this.icons[i].SetActive(true);
+        }
     }
 
     private void Update()
@@ -63,6 +70,11 @@ public class randomScreen : MonoBehaviour
     {
         GameObject temp = currentScreen;
 
+        if (this.currentScreen.CompareTag("Cat"))
+            this.bonusManager.deleteImage();
+        else if (this.currentScreen.CompareTag("Dog"))
+            this.bonusManager.deleteImage();
+
         switch (number)
         {
             case 0:
@@ -70,7 +82,8 @@ public class randomScreen : MonoBehaviour
                 DestroyImmediate(temp, true);
                 DestroyImmediate(this.sideScreens[1], true);
                 DestroyImmediate(this.sideScreens[2], true);
-                this.icons[2].SetActive(false);
+                this.icons[2].SetActive(true);
+                this.icons[1].SetActive(true);
                 this.icons[0].SetActive(true);
                 break;
             case 1:
@@ -88,7 +101,8 @@ public class randomScreen : MonoBehaviour
                 DestroyImmediate(this.sideScreens[1], true);
                 DestroyImmediate(this.sideScreens[0], true);
                 this.icons[2].SetActive(true);
-                this.icons[0].SetActive(false);
+                this.icons[1].SetActive(true);
+                this.icons[0].SetActive(true);
                 break;
         }
 
@@ -106,23 +120,7 @@ public class randomScreen : MonoBehaviour
                 this.sideScreens[i].GetComponent<enemyScript>().deactivateEnemy();
         }
 
-        if (currentScreen.CompareTag("Enemy"))
-        {
-            this.playerStats.activateAttackButton();
-            this.icons[0].gameObject.SetActive(false);
-            this.icons[1].gameObject.SetActive(false);
-            this.icons[2].gameObject.SetActive(false);
-            this.currentScreen.GetComponent<enemyScript>().ActivateEnemy();
-        }
-            
-        else
-        {
-            this.playerStats.deactivateAttackButton();
-            this.icons[0].gameObject.SetActive(true);
-            this.icons[1].gameObject.SetActive(true);
-            this.icons[2].gameObject.SetActive(true);
-        }
-           
+        this.handleScreenTag();
     }
 
     public void MoveScreen(Vector3 position)
@@ -152,5 +150,46 @@ public class randomScreen : MonoBehaviour
         }
     }
 
+    private void handleScreenTag()
+    {
+        if (currentScreen.CompareTag("Enemy"))
+        {
+            this.playerStats.activateAttackButton();
+            this.icons[0].gameObject.SetActive(false);
+            this.icons[1].gameObject.SetActive(false);
+            this.icons[2].gameObject.SetActive(false);
+            this.currentScreen.GetComponent<enemyScript>().ActivateEnemy();
+            this.playerStats.isAttacking = true;
+            return;
+        }
 
+        else if (currentScreen.CompareTag("Upgrade"))
+        {
+            this.icons[0].gameObject.SetActive(false);
+            this.icons[1].gameObject.SetActive(false);
+            this.icons[2].gameObject.SetActive(false);
+            this.upgradeAtatcks.setUpUpgradeScreen();
+            return;
+        }
+
+        else if (currentScreen.CompareTag("Cat"))
+        {
+            this.bonusManager.getRandomCatImages(this.playerStats);
+            return;
+        }
+
+        else if (currentScreen.CompareTag("Dog"))
+        {
+            this.bonusManager.getRandomDogImage(this.playerStats);
+            return;
+        }
+
+        else
+        {
+            this.playerStats.deactivateAttackButton();
+            this.icons[0].gameObject.SetActive(true);
+            this.icons[1].gameObject.SetActive(true);
+            this.icons[2].gameObject.SetActive(true);
+        }
+    }
 }
