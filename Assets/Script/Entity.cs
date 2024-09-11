@@ -5,10 +5,10 @@ using UnityEngine;
 public class Entity : ScriptableObject
 {
     [Tooltip("Health of the enemy")]public int health;
-    [Tooltip("Likes of the enemy")]public float likes;
+    [Tooltip("Likes of the enemy")]public int likes;
 
-    private string nameAttack1;
-    private string nameAttack2;
-    private string nameAttack3;
-    private string nameAttack4;
+    public string nameAttack1;
+    public string nameAttack2;
+    public string nameAttack3;
+    public string nameAttack4;
 }

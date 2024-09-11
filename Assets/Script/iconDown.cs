@@ -39,7 +39,6 @@ public class iconDown : MonoBehaviour
     {
         if( isDragging && this.transform.position.y == this.startPosition.y + this.iconsValues.SlidingDistance)
         {
-            Debug.Log("CA MARCHE");
             this.isDragging = false;
             this.offsetDone = false;
             this.randomScreen.Switchto(1);
@@ -49,7 +48,6 @@ public class iconDown : MonoBehaviour
 
         else
         {
-            Debug.Log("Trop tot");
             this.transform.position = this.startPosition;
             this.randomScreen.MoveScreen(new Vector3(0, 0, 0));
             transform.localScale =  new Vector3(this.oldScale, this.oldScale, 0.1f); 

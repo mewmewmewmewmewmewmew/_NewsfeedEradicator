@@ -41,7 +41,6 @@ public class iconRight : MonoBehaviour
     {
         if (isDragging && this.transform.position.x == this.startPosition.x - this.iconsValues.SlidingDistance)
         {
-            Debug.Log("PTN CA MARCHE");
             this.isDragging = false;
             this.offsetDone = false;
             this.randomScreen.Switchto(2);
@@ -51,7 +50,6 @@ public class iconRight : MonoBehaviour
 
         else
         {
-            Debug.Log("Trop tot mskn");
             this.transform.position = this.startPosition;
             this.randomScreen.MoveScreen(new Vector3(0, 0, 0));
             transform.localScale = new Vector3(this.oldScale, this.oldScale, 0.1f); 

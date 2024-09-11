@@ -39,7 +39,24 @@ public class randomScreen : MonoBehaviour
         this.currentScreen = Instantiate(this.prefabList[genereator.Next(length)], new Vector3(0, 0, 0), Quaternion.identity);
 
         while (this.currentScreen.CompareTag("Enemy"))
+        {
+            DestroyImmediate(this.currentScreen, true);
             this.currentScreen = Instantiate(this.prefabList[genereator.Next(length)], new Vector3(0, 0, 0), Quaternion.identity);
+        }   
+    }
+
+    private void Update()
+    {
+        if (this.playerStats.reactivate)
+        {
+            for (int i = 0; i < this.icons.Length; i++) 
+            {
+                this.icons[i].SetActive(true);
+            }
+
+            this.playerStats.reactivate = false;
+        }
+            
     }
 
     public void Switchto(int number)
