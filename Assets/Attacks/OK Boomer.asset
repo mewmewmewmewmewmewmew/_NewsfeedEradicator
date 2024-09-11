@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Meme
+  m_Name: OK Boomer
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 0
   LikeDamege: 0
-  LikeGain: 8
-  likeCost: 0
-  description: 'Cost: 0 Likes | Damage: 1 | Like Gained: 4-8 - On 4 likes, you can
-    reuse meme'
+  LikeGain: 6
+  likeCost: 14
+  description: 'Cost: 14 Likes | Likes Gained: 3-6 - Does the opponent previous attack'

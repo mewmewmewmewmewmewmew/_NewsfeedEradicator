@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Meme
+  m_Name: Ratio
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 0
   LikeDamege: 0
-  LikeGain: 8
-  likeCost: 0
-  description: 'Cost: 0 Likes | Damage: 1 | Like Gained: 4-8 - On 4 likes, you can
-    reuse meme'
+  LikeGain: 4
+  likeCost: 6
+  description: "Cost: 6 likes | Like Gained: 4 - If your likes are above your enemy\u2019s
+    , apply the difference in likes as damages"
