@@ -19,4 +19,4 @@ MonoBehaviour:
   maxLikeGain: 6
   likeCost: 14
   description: 'Cost: 14 Likes | Likes Gained: 3-6 - Does the opponent previous attack'
-  Icon: {fileID: 2175331591374292755, guid: d2ab67640acad4c4bb37e784a84abd6d, type: 3}
+  Icon: {fileID: 4626923652246809236, guid: 148d28be8f4ef1646b6cd5eec7183d5e, type: 3}

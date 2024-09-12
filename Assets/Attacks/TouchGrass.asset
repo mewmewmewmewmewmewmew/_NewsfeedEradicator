@@ -19,3 +19,4 @@ MonoBehaviour:
   maxLikeGain: 0
   likeCost: 10
   description: 'Cost: 10 Likes | Damages: 6'
+  Icon: {fileID: 8323180269646218025, guid: c84e69ecb1347ad4db214e6061bd1fb0, type: 3}

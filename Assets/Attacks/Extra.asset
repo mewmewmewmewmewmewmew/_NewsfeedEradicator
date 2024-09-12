@@ -20,3 +20,4 @@ MonoBehaviour:
   likeCost: 0
   description: 'Cost: 0 likes | Likes Gained: 4-8 - Your actions gain 1 like next
     turn'
+  Icon: {fileID: 8178492427564464910, guid: bf2307ce87267724bad7b0d2bf5925d7, type: 3}

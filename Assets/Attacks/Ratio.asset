@@ -20,4 +20,4 @@ MonoBehaviour:
   likeCost: 6
   description: "Cost: 6 likes | Likes Gained: 0-4 - If your likes are above your
     enemy\u2019s , apply the difference in likes as damage"
-  Icon: {fileID: 4826569557740828880, guid: 69d75ed2af42e3a42a91a08593fc1b87, type: 3}
+  Icon: {fileID: 960608519529950496, guid: c980cdbc47f6f8a4890bdaf73795697a, type: 3}
