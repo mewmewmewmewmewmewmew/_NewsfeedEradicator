@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Entity", menuName = "Entity")]
 public class Entity : ScriptableObject
 {
+    public string Name;
+
     [Tooltip("Health of the enemy")]public int health;
     [Tooltip("Likes of the enemy")]public int likes;
 
