@@ -43,15 +43,15 @@ public class iconRight : MonoBehaviour
             this.isDragging = false;
             this.offsetDone = false;
             this.randomScreen.Switchto(2);
-            transform.localScale = new Vector3(this.oldScale, this.oldScale, 0.1f);
+            transform.localScale = new Vector3(this.oldScale, this.oldScale, 1);
             transform.position = this.startPosition;
         }
 
         else
         {
             this.transform.position = this.startPosition;
-            this.randomScreen.MoveScreen(new Vector3(0, 0, 0));
-            transform.localScale = new Vector3(this.oldScale, this.oldScale, 0.1f); 
+            this.randomScreen.MoveScreen(new Vector3(0, 0, 5));
+            transform.localScale = new Vector3(this.oldScale, this.oldScale, 1); 
             this.isDragging = false;
             this.offsetDone = false;
         }
@@ -59,8 +59,6 @@ public class iconRight : MonoBehaviour
     private Vector3 GetFixedPos()
     {
         MousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-        //MousePos = Input.mousePosition;
-        //Debug.Log(MousePos);
 
         if (!offsetDone)
         {
@@ -71,21 +69,21 @@ public class iconRight : MonoBehaviour
 
         if (MousePos.x < this.startPosition.x && !(MousePos.x < this.startPosition.x - this.iconsValues.SlidingDistance))
         {
-            this.randomScreen.MoveScreen(new Vector3(0 - (offset - MousePos.x), 0, 0));
-            return new Vector3(MousePos.x, transform.position.y, -1);
+            this.randomScreen.MoveScreen(new Vector3(0 - (offset - MousePos.x), 0, 5));
+            return new Vector3(MousePos.x, transform.position.y, 4);
         }
             
 
         else if (MousePos.x > this.startPosition.x)
         {
-            this.randomScreen.MoveScreen(new Vector3(0, 0, 0));
+            this.randomScreen.MoveScreen(new Vector3(0, 0, 5));
             return startPosition;
         }
 
         else
         {
-            this.randomScreen.MoveScreen(new Vector3(0 - this.iconsValues.SlidingDistance, 0, 0));
-            return new Vector3(this.startPosition.x - this.iconsValues.SlidingDistance, transform.position.y, -1);
+            this.randomScreen.MoveScreen(new Vector3(0 - this.iconsValues.SlidingDistance, 0, 5));
+            return new Vector3(this.startPosition.x - this.iconsValues.SlidingDistance, transform.position.y, 4);
         }
     }
     private Vector3 GetFixedScale()
@@ -94,14 +92,14 @@ public class iconRight : MonoBehaviour
         if (MousePos.x < this.startPosition.x && !(MousePos.x < this.startPosition.x - this.iconsValues.SlidingDistance))
         {
             float newScale = ((this.MousePos.x - this.startPosition.x) * this.newGrowRange / this.oldGrowRange) + this.oldScale;
-            return new Vector3(newScale, newScale, 0.1f);
+            return new Vector3(newScale, newScale, 1);
         }
 
         else if (MousePos.x > this.startPosition.x)
-            return new Vector3(this.oldScale, this.oldScale, 0.1f);
+            return new Vector3(this.oldScale, this.oldScale, 1);
 
         else
-            return new Vector3(this.oldScale + this.iconsValues.growingMax, this.oldScale + this.iconsValues.growingMax, 0.1f);
+            return new Vector3(this.oldScale + this.iconsValues.growingMax, this.oldScale + this.iconsValues.growingMax, 1);
 
 
 

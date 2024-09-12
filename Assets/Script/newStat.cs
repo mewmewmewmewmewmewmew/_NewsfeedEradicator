@@ -1,5 +1,6 @@
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "newStat", menuName = "Attack")]
 public class newStat : ScriptableObject

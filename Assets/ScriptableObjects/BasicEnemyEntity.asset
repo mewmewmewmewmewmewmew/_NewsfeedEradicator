@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc04c0d891e95c4e8a341bb08ac69c8, type: 3}
   m_Name: BasicEnemyEntity
   m_EditorClassIdentifier: 
+  Name: 
   health: 20
-  likes: 20
+  likes: 41
   nameAttack1: basic
   nameAttack2: strong
   nameAttack3: basic
