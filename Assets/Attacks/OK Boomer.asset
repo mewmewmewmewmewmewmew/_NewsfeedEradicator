@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Extra
+  m_Name: OK Boomer
   m_EditorClassIdentifier: 
-  effect: 0
   Damage: 0
   LikeDamege: 0
-  minLikeGain: 0
-  maxLikeGain: 0
-  likeCost: 0
-  description: 
+  LikeGain: 6
+  likeCost: 14
+  description: 'Cost: 14 Likes | Likes Gained: 3-6 - Does the opponent previous attack'

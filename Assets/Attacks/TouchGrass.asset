@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Repost
+  m_Name: TouchGrass
   m_EditorClassIdentifier: 
-  effect: 0
-  Damage: 0
+  Damage: 6
   LikeDamege: 0
-  minLikeGain: 0
-  maxLikeGain: 0
-  likeCost: 0
-  description: 
+  LikeGain: 0
+  likeCost: 10
+  description: 'Cost: 10 Likes | Damages: 6'

@@ -7,6 +7,10 @@ public class bonusManager : MonoBehaviour
 {
     public Sprite[] catManager;
     public Sprite[] dogManager;
+
+    public string[] catPhrase;
+
+    public string[] dogPhrase;
     public void getRandomCatImages(GameObject currentScreen)
     {
         System.Random genereator = new System.Random();
