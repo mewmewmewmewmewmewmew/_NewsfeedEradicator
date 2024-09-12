@@ -25,4 +25,6 @@ public class newStat : ScriptableObject
     public int likeCost;
 
     public string description;
+
+    public GameObject Icon;
 }
