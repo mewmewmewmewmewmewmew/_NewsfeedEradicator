@@ -7,36 +7,17 @@ public class bonusManager : MonoBehaviour
 {
     public Sprite[] catManager;
     public Sprite[] dogManager;
-
-    public GameObject currentImage;
-    public void getRandomCatImages(playerStats playerStats)
+    public void getRandomCatImages(GameObject currentScreen)
     {
         System.Random genereator = new System.Random();
 
-        this.currentImage.SetActive(true);
-        this.currentImage.GetComponent<Image>().sprite =  this.catManager[genereator.Next(this.catManager.Length)];
-
-        playerStats.currentHealth += genereator.Next(1, 3);
+        currentScreen.GetComponentInChildren<Image>().sprite =  this.catManager[genereator.Next(this.catManager.Length)];
     }
 
-    public void getRandomDogImage(playerStats playerStats)
+    public void getRandomDogImage(GameObject currentScreen)
     {
         System.Random genereator = new System.Random();
 
-        this.currentImage.SetActive(true);
-        this.currentImage.GetComponent<Image>().sprite = this.dogManager[genereator.Next(this.dogManager.Length)];
-
-
-        if (playerStats.currentDifficulty == 0)  
-            playerStats.currentLikes += genereator.Next(1, 4);
-        if(playerStats.currentLikes == 1)
-            playerStats.currentHealth += genereator.Next(3, 6);
-        if(playerStats.currentDifficulty == 2)
-            playerStats.currentLikes += genereator.Next(6, 11);
-    }
-
-    public void deleteImage()
-    {
-       this.currentImage.SetActive(false);
+        currentScreen.GetComponentInChildren<Image>().sprite = this.dogManager[genereator.Next(this.dogManager.Length)];
     }
 }

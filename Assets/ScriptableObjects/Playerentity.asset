@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Playerentity
   m_EditorClassIdentifier: 
   health: 20
-  likes: 50
+  likes: 4
   nameAttack1: basic
   nameAttack2: strong
   nameAttack3: likes

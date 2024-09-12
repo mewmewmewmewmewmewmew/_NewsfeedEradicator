@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 5251815763011082078}
   - component: {fileID: 4992549745010291567}
   m_Layer: 5
-  m_Name: LikesCount
+  m_Name: HeartCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
