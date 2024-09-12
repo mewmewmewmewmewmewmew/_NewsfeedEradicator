@@ -21,6 +21,7 @@ public class randomScreen : MonoBehaviour
 
     public playerStats playerStats;
     public bonusManager bonusManager;
+    public ParameterController sound;
 
     void Start()
     {
@@ -176,17 +177,25 @@ public class randomScreen : MonoBehaviour
             this.icons[0].gameObject.SetActive(false);
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);
+            sound.SetParameter("GameMusic", playerStats.currentDifficulty + 1);
             return;
         }
 
         else if (currentScreen.CompareTag("Cat"))
+        {
+            sound.SetParameter("GameMusic", 0);
             this.currentScreen.GetComponent<CatBonus>().AddHealth();
+        }
 
         else if (currentScreen.CompareTag("Dog"))
+        {
+            sound.SetParameter("GameMusic", 0);
             this.currentScreen.GetComponent<DogBonus>().AddLikes();
+        }
 
         else if (currentScreen.CompareTag("Upgrade"))
         {
+            sound.SetParameter("GameMusic", 5);
             this.icons[0].gameObject.SetActive(false);
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);

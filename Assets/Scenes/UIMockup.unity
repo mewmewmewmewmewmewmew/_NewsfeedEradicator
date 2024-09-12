@@ -401,12 +401,12 @@ GameObject:
   - component: {fileID: 85475615}
   - component: {fileID: 85475614}
   m_Layer: 5
-  m_Name: ScrollState (1)
+  m_Name: Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &85475613
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1257,12 +1257,12 @@ GameObject:
   - component: {fileID: 273142847}
   - component: {fileID: 273142846}
   m_Layer: 5
-  m_Name: ScrollState (4)
+  m_Name: Ded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &273142845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1652,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &373999757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2218,7 +2218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &709123204
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2703,7 +2703,7 @@ GameObject:
   - component: {fileID: 956802236}
   - component: {fileID: 956802235}
   m_Layer: 5
-  m_Name: Ded
+  m_Name: text (tmp)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2913,7 +2913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1000868469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3472,7 +3472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1160023475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3999,12 +3999,12 @@ GameObject:
   - component: {fileID: 1363412856}
   - component: {fileID: 1363412855}
   m_Layer: 5
-  m_Name: ScrollState (2)
+  m_Name: Med
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1363412854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4070,7 +4070,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2005553591}
+      - m_Target: {fileID: 1767680271}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -4617,12 +4617,12 @@ GameObject:
   - component: {fileID: 1767680272}
   - component: {fileID: 1767680273}
   m_Layer: 5
-  m_Name: FakeHP
+  m_Name: ParameterController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1767680272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4650,14 +4650,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767680271}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 890aa8627ec5cc24491e7bd1056763c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fmodEvent: event:/GameAudio
-  health: 0
-  gameState: scroll
+  health: 1
+  _gameState: 0
+  ChangeState: 0
 --- !u!1 &1811808490
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,7 +5141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2005553592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5235,7 +5236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2066389805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5369,7 +5370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2131544733
 RectTransform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class ParameterController : MonoBehaviour
     public float health = 0;
     public float _gameState = 0;
     public bool ChangeState = false;
+    public playerStats playerStats;
 
     private FMOD.Studio.EventInstance eventInstance;
 
@@ -19,6 +20,7 @@ public class ParameterController : MonoBehaviour
         // Create an instance of the FMOD event
         eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         eventInstance.start();
+        eventInstance.setParameterByName("HPRatio", 1);
     }
 
     // Function to modify the parameter
@@ -41,7 +43,6 @@ public class ParameterController : MonoBehaviour
             health -= .1f;
             SetParameter("HPRatio", health); // Replace "MyParameter" with your actual parameter name
         }
-
         if(ChangeState)
         {
             SetParameter("HPRatio", health);
