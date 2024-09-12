@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
   m_Name: meme
   m_EditorClassIdentifier: 
+  effect: 1
   Damage: 1
   LikeDamege: 0
-  LikeGain: 0
-  likeCost: 1
-  description: it's just a meme
+  minLikeGain: 4
+  maxLikeGain: 8
+  likeCost: 0
+  description: 'Cost: 0 Likes | Damage: 1 | Like Gained: 4-8 - On 4 likes, you can
+    reuse meme'

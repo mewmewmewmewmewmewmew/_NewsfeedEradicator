@@ -47,6 +47,15 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
   currentHealth: 0
   currentLike: 0
+  ConvertDamage: 0
+  repeatNextOne: 0
+  CopyAttack: 0
+  onelikeCancel: 0
+  oneLikeBonus: 0
+  futurOneLikeBonus: 0
+  repostGlowUp: 0
+  glowUpBonus: 0
+  likebonusRand: 0
 --- !u!1 &996503528455386095
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +202,7 @@ GameObject:
   - component: {fileID: 8934077226290604355}
   - component: {fileID: 5743554310929549802}
   - component: {fileID: 704751086918899819}
+  - component: {fileID: 6808078937913043974}
   m_Layer: 5
   m_Name: Message-Container#1
   m_TagString: Untagged
@@ -219,7 +229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000078201294, y: -105.028946}
+  m_AnchoredPosition: {x: -0.000078201294, y: -105.0289}
   m_SizeDelta: {x: 590.773, y: 197.392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5743554310929549802
@@ -260,6 +270,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6808078937913043974
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169378125405492216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18352bb98e8899342a7944d92156047a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1811717937658056707
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.669922, y: -32.269043}
+  m_AnchoredPosition: {x: 9.669922, y: -72}
   m_SizeDelta: {x: 590.773, y: 407.44995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4421313226934408106
@@ -925,6 +956,7 @@ GameObject:
   - component: {fileID: 767348787575156888}
   - component: {fileID: 8621194534893897533}
   - component: {fileID: 2603999786163264174}
+  - component: {fileID: 1362403979010231376}
   m_Layer: 5
   m_Name: Message-Container#2
   m_TagString: Untagged
@@ -992,6 +1024,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1362403979010231376
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892419195616210125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5e38fccf94e594429f6b08eba7444ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7126410747193032467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 000402cfd2b6dba47979eb11d02fca42, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0ea0bb07557f06145ae6ac13c1e59b01, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1193,10 +1246,58 @@ MonoBehaviour:
   - {fileID: 4333878935654572561}
   playerAttack:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6808078937913043974}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Attack
+          m_BoolArgument: 0
+        m_CallState: 2
   enemyAttack:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6808078937913043974}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Idle
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1362403979010231376}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IdleEnemyAfterAttack
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6892419195616210125}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AttackEnemy
+          m_BoolArgument: 0
+        m_CallState: 2
   fightWin:
     m_PersistentCalls:
       m_Calls: []
