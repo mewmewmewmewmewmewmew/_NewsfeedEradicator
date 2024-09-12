@@ -41,6 +41,7 @@ public class enemyHandler : MonoBehaviour
 
     private bool onelikeCancel;
     private int oneLikeBonus;
+    private int futurOneLikeBonus;
 
     private bool repostGlowUp;
     private int  glowUpBonus;
@@ -169,7 +170,8 @@ public class enemyHandler : MonoBehaviour
             {
                 this.playerAttack.Invoke();
 
-                this.playerStats.currentLikes += this.oneLikeBonus;
+                if (this.onelikeCancel)
+                    this.playerStats.currentLikes += this.oneLikeBonus;
 
                 if (this.repeatNextOne)
                     this.HandleRepost(this.attackDico.manager[this.attacskName[0].text].effect);
@@ -253,12 +255,16 @@ public class enemyHandler : MonoBehaviour
             {
                 this.attacks[i].interactable = true;
             }
+            
+            this.oneLikeBonus = 0;
 
-            if(this.onelikeCancel)
-                this.oneLikeBonus = 0;
-
-
-            this.onelikeCancel = true;
+            if (!this.onelikeCancel)
+            {
+                this.oneLikeBonus = this.futurOneLikeBonus;
+                this.futurOneLikeBonus = 0;
+                this.onelikeCancel = true;
+            }
+                
             this.playerStats.currentLikes += this.glowUpBonus;
 
             if (this.repostGlowUp)
@@ -319,7 +325,7 @@ public class enemyHandler : MonoBehaviour
                 break;
             case ATTACK_SPECIFICATION.E_EXTRA :
                 this.onelikeCancel = false;
-                this.oneLikeBonus += 1;
+                this.futurOneLikeBonus += 1;
                 break;
             case ATTACK_SPECIFICATION.E_GLOWUP:
                 this.glowUpBonus += 2;
@@ -365,7 +371,7 @@ public class enemyHandler : MonoBehaviour
                 this.CopyOpponenetAttack();
                 break;
             case ATTACK_SPECIFICATION.E_EXTRA:
-                this.oneLikeBonus += 1;
+                this.futurOneLikeBonus += 1;
                 break;
             case ATTACK_SPECIFICATION.E_GLOWUP:
                 this.repostGlowUp = true;
