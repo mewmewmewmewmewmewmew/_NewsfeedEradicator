@@ -2,12 +2,15 @@ using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ParameterController : MonoBehaviour
 {
     // Reference to the FMOD event
     public string fmodEvent = "event:/GameAudio"; // Replace with your FMOD event path
     public float health = 0;
+    public float _gameState = 0;
+    public bool ChangeState = false;
 
     private FMOD.Studio.EventInstance eventInstance;
 
@@ -38,6 +41,15 @@ public class ParameterController : MonoBehaviour
             health -= .1f;
             SetParameter("HPRatio", health); // Replace "MyParameter" with your actual parameter name
         }
+
+        if(ChangeState)
+        {
+            SetParameter("HPRatio", health);
+            SetParameter("GameMusic", _gameState);
+            ChangeState= false;
+        }
+
+
     }
 
     private void OnDestroy()
