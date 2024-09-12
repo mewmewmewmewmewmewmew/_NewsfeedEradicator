@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8879396761103575546}
   m_Layer: 0
   m_Name: ContainerSlot-GlowGirl
-  m_TagString: Untagged
+  m_TagString: AttackIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
