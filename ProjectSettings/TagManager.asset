@@ -11,6 +11,7 @@ TagManager:
   - Cat
   - Dog
   - Canvas
+  - Mask
   layers:
   - Default
   - TransparentFX

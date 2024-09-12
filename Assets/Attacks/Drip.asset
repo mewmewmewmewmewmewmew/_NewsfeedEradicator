@@ -19,4 +19,4 @@ MonoBehaviour:
   maxLikeGain: 0
   likeCost: 12
   description: 'Cost: 12 likes - Repeat next attack twice'
-  Icon: {fileID: 919132149155446097, guid: 2da327cd3bf243a43bde9f305a63b041, type: 3}
+  Icon: {fileID: 108041458671480849, guid: c88d5fa5b63c98841870a5721344f725, type: 3}
