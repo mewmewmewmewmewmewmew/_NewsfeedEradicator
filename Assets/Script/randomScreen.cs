@@ -137,6 +137,14 @@ public class randomScreen : MonoBehaviour
 
             if (this.sideScreens[i].CompareTag("Dog"))
                 this.bonusManager.getRandomDogImage(this.sideScreens[i]);
+
+            if (this.sideScreens[i].CompareTag("AttackEnemy"))
+            {
+                GameObject[] array = GameObject.FindGameObjectsWithTag("AttackIcon");
+
+                for (int i = 0; i < array.Length; i++)
+                    array[i].gameObject.SetActive(false);
+            }
         }
         
        
@@ -178,6 +186,11 @@ public class randomScreen : MonoBehaviour
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);
             sound.SetParameter("GameMusic", playerStats.currentDifficulty + 1);
+            GameObject[] array = GameObject.FindGameObjectsWithTag("AttackIcon");
+
+            for(int i = 0; i < array.Length; i++)
+                array[i].gameObject.SetActive(true);
+
             return;
         }
 

@@ -277,7 +277,6 @@ public class enemyHandler : MonoBehaviour
                
 
             this.playerStats.currentLikes += this.glowUpBonus;
-            this.enemy.currentLike += this.glowUpBonus;
 
             if (this.repostGlowUp)
             {
@@ -479,6 +478,9 @@ public class enemyHandler : MonoBehaviour
         Debug.Log("--------START OF THE FUNCTION ENEMY ATTACK-----------");
         Debug.Log("Current Enemy Health : " + this.enemy.currentHealth + "Current Enemy Like : " + this.enemy.currentLike);
         Debug.Log("Current Player Health : " + this.playerStats.currentHealth + "Current Player Like : " + this.playerStats.currentLikes);
+
+        Debug.Log(this.enemy.currentLike + "+" + this.enemy.glowUpBonus);
+        this.enemy.currentLike += this.enemy.glowUpBonus;
 
         this.enemy.likebonusRand = genereator.Next(this.attackDico.manager[enemyAttack].minLikeGain, this.attackDico.manager[enemyAttack].maxLikeGain + 1);
         Debug.Log("LIKE GAIN :" + this.enemy.likebonusRand);
