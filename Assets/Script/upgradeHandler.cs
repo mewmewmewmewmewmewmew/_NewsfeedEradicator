@@ -74,7 +74,7 @@ public class upgradeHandler : MonoBehaviour
         while(!isSame) 
         {
             attackName = this.attackManager.attacks[genereator.Next(this.attackManager.attacks.Length)].name;
-            this.checkSimilarity(attackName);
+            isSame = this.checkSimilarity(attackName);
         }
 
         return attackName;

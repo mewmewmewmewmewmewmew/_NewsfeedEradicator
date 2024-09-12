@@ -9,10 +9,22 @@ public class enemyScript : MonoBehaviour
     public int currentHealth;
     public int currentLike;
 
+    private bool ConvertDamage;
+    private bool repeatNextOne;
+    private bool CopyAttack;
+    private bool oneLikeBonus;
+    private int glowUpBonus;
+
     void Start()
     {
         this.currentHealth = this.stats.health;
         this.currentLike = this.stats.likes;
+
+        this.ConvertDamage = false;
+        this.repeatNextOne = false;
+        this.CopyAttack = false;
+        this.oneLikeBonus = false;
+        this.glowUpBonus = 0;
     }
 
     public string enemyAttack()
