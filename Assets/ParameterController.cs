@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FMODParameterController : MonoBehaviour
+public class ParameterController : MonoBehaviour
 {
     // Reference to the FMOD event
     public string fmodEvent = "event:/GameAudio"; // Replace with your FMOD event path
