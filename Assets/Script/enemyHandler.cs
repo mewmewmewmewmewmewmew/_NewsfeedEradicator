@@ -432,7 +432,7 @@ public class enemyHandler : MonoBehaviour
                 this.enemy.currentHealth += difference;
         }
         else
-            this.enemy.currentHealth -= this.attackDico.manager[this.attacskName[1].text].Damage;
+            this.playerStats.currentHealth -= this.attackDico.manager[this.attacskName[1].text].Damage;
     }
 
     private void CopyOpponenetAttack(int i)
@@ -458,6 +458,9 @@ public class enemyHandler : MonoBehaviour
     {
         string enemyAttack = this.enemy.enemyAttack();
 
+        this.attacskName[1].text = enemyAttack;
+        this.attacksDescription[1].text = this.attackDico.manager[enemyAttack].description;
+
         if (this.enemy.currentLike - this.attackDico.manager[enemyAttack].likeCost >= 0)
         {
 
@@ -465,9 +468,9 @@ public class enemyHandler : MonoBehaviour
                 this.enemy.currentLike += this.enemy.oneLikeBonus;
 
             if (this.enemy.repeatNextOne)
-                this.HandleEnemyRepost(this.attackDico.manager[this.attacskName[0].text].effect);
+                this.HandleEnemyRepost(this.attackDico.manager[this.attacskName[1].text].effect);
 
-            this.HandleEnemyAttack(this.attackDico.manager[this.attacskName[0].text].effect);
+            this.HandleEnemyAttack(this.attackDico.manager[this.attacskName[1].text].effect);
 
             this.enemy.likebonusRand = genereator.Next(this.attackDico.manager[enemyAttack].minLikeGain, this.attackDico.manager[enemyAttack].maxLikeGain + 1);
 
@@ -475,7 +478,7 @@ public class enemyHandler : MonoBehaviour
             {
                 this.playerStats.currentLikes -= this.attackDico.manager[enemyAttack].LikeDamege;
                 this.enemy.currentLike -= this.attackDico.manager[enemyAttack].likeCost;
-                this.enemy.currentLike += this.likebonusRand;
+                this.enemy.currentLike += this.enemy.likebonusRand;
                 this.HealthNegationEnemy();
             }
             else
@@ -493,9 +496,6 @@ public class enemyHandler : MonoBehaviour
 
                 this.ConvertDamage = 0;
             }
-
-            this.attacskName[1].text = enemyAttack;
-            this.attacksDescription[1].text = this.attackDico.manager[enemyAttack].description;
         }
         else
         {
