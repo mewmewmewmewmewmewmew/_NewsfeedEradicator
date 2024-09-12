@@ -47,6 +47,15 @@ namespace TMPro.Examples
             StartCoroutine(AnimateVertexColors());
         }
 
+        public void StartJitter()
+        {
+            StartCoroutine(AnimateVertexColors());
+        }
+        public void stopColorCycle()
+        {
+            StopAllCoroutines();
+        }
+
 
         void ON_TEXT_CHANGED(Object obj)
         {

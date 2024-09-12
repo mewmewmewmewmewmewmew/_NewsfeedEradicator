@@ -27,4 +27,5 @@ public class newStat : ScriptableObject
     public string description;
 
     public GameObject Icon;
+
 }
