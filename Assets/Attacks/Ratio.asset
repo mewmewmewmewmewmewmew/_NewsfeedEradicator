@@ -18,4 +18,5 @@ MonoBehaviour:
   minLikeGain: 0
   maxLikeGain: 4
   likeCost: 6
-  description: 
+  description: "Cost: 6 likes | Likes Gained: 0-4 - If your likes are above your
+    enemy\u2019s , apply the difference in likes as damage"

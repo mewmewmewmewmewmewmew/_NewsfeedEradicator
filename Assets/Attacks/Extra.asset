@@ -18,4 +18,5 @@ MonoBehaviour:
   minLikeGain: 4
   maxLikeGain: 8
   likeCost: 0
-  description: 
+  description: 'Cost: 0 likes | Likes Gained: 4-8 - Your actions gain 1 like next
+    turn'

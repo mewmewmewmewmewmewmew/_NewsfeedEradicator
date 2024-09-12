@@ -18,4 +18,4 @@ MonoBehaviour:
   minLikeGain: 0
   maxLikeGain: 0
   likeCost: 12
-  description: 
+  description: 'Cost: 12 likes - Repeat next attack twice'

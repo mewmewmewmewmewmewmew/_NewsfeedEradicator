@@ -18,5 +18,5 @@ MonoBehaviour:
   minLikeGain: 0
   maxLikeGain: 0
   likeCost: 4
-  description: Convert next enemy attack damage into bonus likes for you(you still
-    take the damages)
+  description: 'Cost: 4 likes - Convert next enemy attack you received damage into
+    likes. You still take damage'
