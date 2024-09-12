@@ -9,9 +9,6 @@ public class playerStats : MonoBehaviour
 {
     public Entity stats;
 
-    private bool[] attackSelection;
-    private bool[] attackDone;
-
     public int currentHealth;
     public int currentLikes;
 

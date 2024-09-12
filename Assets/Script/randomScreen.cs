@@ -21,6 +21,7 @@ public class randomScreen : MonoBehaviour
 
     public playerStats playerStats;
     public bonusManager bonusManager;
+    public attackManager attackManager;
     public ParameterController sound;
 
     void Start()
@@ -85,6 +86,16 @@ public class randomScreen : MonoBehaviour
         GameObject temp = currentScreen;
         this.currentScreen.transform.SetAsFirstSibling();
 
+        if (this.currentScreen.CompareTag("Enemy"))
+        {
+            GameObject[] icons = GameObject.FindGameObjectsWithTag("AttackIcon");
+
+            for(int i = 0;i < icons.Length; i++)
+            {
+                DestroyImmediate(icons[i]);
+            }
+        }
+
         switch (number)
         {
             case 0:
@@ -137,14 +148,6 @@ public class randomScreen : MonoBehaviour
 
             if (this.sideScreens[i].CompareTag("Dog"))
                 this.bonusManager.getRandomDogImage(this.sideScreens[i]);
-
-            if (this.sideScreens[i].CompareTag("AttackEnemy"))
-            {
-                GameObject[] array = GameObject.FindGameObjectsWithTag("AttackIcon");
-
-                for (int i = 0; i < array.Length; i++)
-                    array[i].gameObject.SetActive(false);
-            }
         }
         
        
@@ -186,10 +189,11 @@ public class randomScreen : MonoBehaviour
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);
             sound.SetParameter("GameMusic", playerStats.currentDifficulty + 1);
-            GameObject[] array = GameObject.FindGameObjectsWithTag("AttackIcon");
 
-            for(int i = 0; i < array.Length; i++)
-                array[i].gameObject.SetActive(true);
+            Instantiate(this.attackManager.manager[this.playerStats.curretnAttack1].Icon);
+            Instantiate(this.attackManager.manager[this.playerStats.curretnAttack2].Icon);
+            Instantiate(this.attackManager.manager[this.playerStats.curretnAttack3].Icon);
+            Instantiate(this.attackManager.manager[this.playerStats.curretnAttack4].Icon);
 
             return;
         }
