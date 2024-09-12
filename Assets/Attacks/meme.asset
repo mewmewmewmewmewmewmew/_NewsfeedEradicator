@@ -20,3 +20,4 @@ MonoBehaviour:
   likeCost: 0
   description: 'Cost: 0 Likes | Damage: 1 | Like Gained: 4-8 - On 4 likes, you can
     reuse meme'
+  Icon: {fileID: 2175331591374292755, guid: d2ab67640acad4c4bb37e784a84abd6d, type: 3}
