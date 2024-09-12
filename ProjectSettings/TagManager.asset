@@ -12,6 +12,7 @@ TagManager:
   - Dog
   - Canvas
   - Mask
+  - AttackIcon
   layers:
   - Default
   - TransparentFX
