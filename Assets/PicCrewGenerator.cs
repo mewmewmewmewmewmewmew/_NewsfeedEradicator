@@ -1,49 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PicCrewGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public List<GameObject> ClothesAttributes = new List<GameObject>();
-    GameObject CurrentClothesAttribute;
-    public List<GameObject> EyeAttributes = new List<GameObject>();
-    GameObject CurrentEyeAttribute;
-    public List<GameObject> HairAttributes = new List<GameObject>();
-    GameObject CurrentHairAttribute;
-    public List<GameObject> MouthAttributes = new List<GameObject>();
-    GameObject CurrentMouthAtrribute;
-    public List<GameObject> BaseAttributes= new List<GameObject>();
-    GameObject CurrentBaseAttribute;
+    public List<Sprite> ClothesAttributes = new List<Sprite>();
+    Sprite CurrentClothesAttribute;
+    public List<Sprite> EyeAttributes = new List<Sprite>();
+    Sprite CurrentEyeAttribute;
+    public List<Sprite> HairAttributes = new List<Sprite>();
+    Sprite CurrentHairAttribute;
+    public List<Sprite> MouthAttributes = new List<Sprite>();
+    Sprite CurrentMouthAtrribute;
+    public List<Sprite> BaseAttributes= new List<Sprite>();
+    Sprite CurrentBaseAttribute;
 
-    List<List<GameObject>> AllAttributes= new List<List<GameObject>>();
+    public Image Clothes;
+    public Image Eye;
+    public Image Hair;
+    public Image Mouth;
+    public Image Base;
+
+    List<Image> images= new List<Image>();
+
+    List<List<Sprite>> AllAttributeLists= new List<List<Sprite>>();
+    List<Sprite> AllAttributes= new List<Sprite>();
     void Start()
     {
-        AllAttributes.Add(ClothesAttributes); AllAttributes.Add(EyeAttributes); AllAttributes.Add(HairAttributes); AllAttributes.Add(MouthAttributes); AllAttributes.Add(BaseAttributes);
+        //5
+        images.Add(Clothes);  images.Add(Eye); images.Add(Hair); images.Add (Base); images.Add(Mouth);
+        //5
+        AllAttributes.Add(CurrentClothesAttribute); AllAttributes.Add(CurrentEyeAttribute); AllAttributes.Add(CurrentHairAttribute); AllAttributes.Add(CurrentBaseAttribute); AllAttributes.Add(CurrentMouthAtrribute);
+        //5
+        AllAttributeLists.Add(ClothesAttributes); AllAttributeLists.Add(EyeAttributes); AllAttributeLists.Add(HairAttributes); AllAttributeLists.Add(BaseAttributes); AllAttributeLists.Add(MouthAttributes);
+        RandomizeAllPicCrewAttributes();
     }
 
-    void RandomizePicCrewAttribute(GameObject myAttribute, List<GameObject> myAttributeList)
-    {
-        myAttribute = myAttributeList(Random.Range(0, myAttributeList.Count-1));
-    }
-
-    void RandomizeAllPicCrewAttributes()
+    void RandomizePicCrewAttribute( List<Sprite> myAttributeList, Image image)
     {
 
-    }
-    void setPicCrew()
-    {
+        image.sprite = myAttributeList[Random.Range(0, myAttributeList.Count)];
+        Debug.Log(image.sprite + myAttributeList[0].name);
 
     }
 
-    void clearPicCrew()
+    public void RandomizeAllPicCrewAttributes()
     {
+        for (int i = 0; i < AllAttributeLists.Count; i++)
+        {
 
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+            RandomizePicCrewAttribute(AllAttributeLists[i], images[i]);
+        }
     }
 }
