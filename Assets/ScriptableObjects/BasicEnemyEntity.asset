@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   health: 20
-  likes: 41
-  nameAttack1: basic
-  nameAttack2: strong
-  nameAttack3: basic
-  nameAttack4: strong
+  likes: 157
+  nameAttack1: meme
+  nameAttack2: Extra
+  nameAttack3: Tuch grass
+  nameAttack4: Repost

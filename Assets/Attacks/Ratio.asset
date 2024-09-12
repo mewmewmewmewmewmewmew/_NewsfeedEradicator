@@ -12,19 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
   m_Name: Ratio
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  effect: 0
+  effect: 2
   Damage: 0
   LikeDamege: 0
   minLikeGain: 0
-  maxLikeGain: 0
-  likeCost: 0
-  description: 
-=======
-  Damage: 0
-  LikeDamege: 0
-  LikeGain: 4
+  maxLikeGain: 4
   likeCost: 6
-  description: "Cost: 6 likes | Like Gained: 4 - If your likes are above your enemy\u2019s
-    , apply the difference in likes as damages"
->>>>>>> 6c1c67e498c49ccd7ff9f44e779d927345d0dc67
+  description: 
