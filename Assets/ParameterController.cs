@@ -8,7 +8,7 @@ public class ParameterController : MonoBehaviour
 {
     // Reference to the FMOD event
     public string fmodEvent = "event:/GameAudio"; // Replace with your FMOD event path
-    public float health = 0;
+    public float health = 12;
     public float _gameState = 0;
     public bool ChangeState = false;
     public playerStats playerStats;
@@ -20,7 +20,7 @@ public class ParameterController : MonoBehaviour
         // Create an instance of the FMOD event
         eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         eventInstance.start();
-        eventInstance.setParameterByName("HPRatio", playerStats.currentHealth/12);
+        eventInstance.setParameterByName("HPRatio", health /*playerStats.currentHealth/12*/);
         eventInstance.setParameterByName("HPRatio", 1);
     }
 
