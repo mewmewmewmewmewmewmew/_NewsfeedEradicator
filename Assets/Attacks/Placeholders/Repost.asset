@@ -10,10 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Denial
+  m_Name: Repost
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  effect: 0
+  Damage: 0
+  LikeDamege: 0
+  minLikeGain: 0
+  maxLikeGain: 0
+  likeCost: 0
+  description: 
+=======
   Damage: 0
   LikeDamege: 0
   LikeGain: 0
-  likeCost: 4
-  description: 'Cost: 4 Likes - Convert next attacks damages into likes'
+  likeCost: 12
+  description: 'Cost: 12 Likes - Repeat next attack twice'
+>>>>>>> 6c1c67e498c49ccd7ff9f44e779d927345d0dc67

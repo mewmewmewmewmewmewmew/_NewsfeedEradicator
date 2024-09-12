@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Tuch grass
+  m_Name: Extra
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   effect: 0
   Damage: 0
   LikeDamege: 0
@@ -19,3 +20,11 @@ MonoBehaviour:
   maxLikeGain: 0
   likeCost: 0
   description: 
+=======
+  Damage: 0
+  LikeDamege: 0
+  LikeGain: 3
+  likeCost: 0
+  description: 'Cost: 0 Likes | Likes Gained: 3-5 - All actions gain 1 like next
+    turn'
+>>>>>>> 6c1c67e498c49ccd7ff9f44e779d927345d0dc67
