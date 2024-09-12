@@ -32,16 +32,16 @@ public class randomScreen : MonoBehaviour
         this.numberTwo = genereator.Next(this.prefabList.Length);
         this.numberThree = genereator.Next(this.prefabList.Length);
 
-        this.sideScreens[0] = Instantiate(this.prefabList[numberOne], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        this.sideScreens[1] = Instantiate(this.prefabList[numberTwo], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        this.sideScreens[2] = Instantiate(this.prefabList[numberThree], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        this.sideScreens[0] = Instantiate(this.prefabList[numberOne], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+        this.sideScreens[1] = Instantiate(this.prefabList[numberTwo], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+        this.sideScreens[2] = Instantiate(this.prefabList[numberThree], new Vector3(0, 0, 6), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
 
-        this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
 
         while (this.currentScreen.CompareTag("Enemy") || this.currentScreen.CompareTag("Upgrade") || this.currentScreen.CompareTag("Cat") || this.currentScreen.CompareTag("Dog"))
         {
             DestroyImmediate(this.currentScreen, true);
-            this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
         }
 
         this.currentScreen.transform.SetAsFirstSibling();
@@ -121,9 +121,9 @@ public class randomScreen : MonoBehaviour
         this.numberTwo = genereator.Next(this.prefabList.Length);
         this.numberThree = genereator.Next(this.prefabList.Length);
 
-        this.sideScreens[0] = Instantiate(this.prefabList[numberOne], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        this.sideScreens[1] = Instantiate(this.prefabList[numberTwo], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        this.sideScreens[2] = Instantiate(this.prefabList[numberThree], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        this.sideScreens[0] = Instantiate(this.prefabList[numberOne], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+        this.sideScreens[1] = Instantiate(this.prefabList[numberTwo], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+        this.sideScreens[2] = Instantiate(this.prefabList[numberThree], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
 
         
 
