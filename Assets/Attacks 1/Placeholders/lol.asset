@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: GlowUp
+  m_Name: lol
   m_EditorClassIdentifier: 
-  effect: 7
-  Damage: 0
-  LikeDamege: 0
-  minLikeGain: 4
-  maxLikeGain: 8
-  likeCost: 6
-  description: 'Cost: 6 likes | Likes Gained: 4-8 - Gain 2 Likes at the start of
-    all future turns. This is stackable'
-  Icon: {fileID: 6320081747834012843, guid: a04324e66085097429147f7666e35846, type: 3}
+  Damage: 5
+  LikeDamege: 5
+  LikeGain: 0
+  likeCost: 10
+  description: lol attack cost 10
