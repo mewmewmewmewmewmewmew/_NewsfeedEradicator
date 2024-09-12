@@ -21,6 +21,11 @@ namespace TMPro.Examples
             StartCoroutine(AnimateVertexColors());
         }
 
+        public void StartColorJitter()
+        {
+            StartCoroutine(AnimateVertexColors());
+        }
+
 
         /// <summary>
         /// Method to animate vertex colors of a TMP Text object.

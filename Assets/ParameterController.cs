@@ -20,6 +20,7 @@ public class ParameterController : MonoBehaviour
         // Create an instance of the FMOD event
         eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         eventInstance.start();
+        eventInstance.setParameterByName("HPRatio", playerStats.currentHealth/12);
         eventInstance.setParameterByName("HPRatio", 1);
     }
 
@@ -27,6 +28,10 @@ public class ParameterController : MonoBehaviour
     public void SetParameter(string paramName, float value)
     {
         eventInstance.setParameterByName(paramName, value);
+    }
+    public void setHealthParamater(string paramName, float value)
+    {
+        eventInstance.setParameterByName("HPRatio", value);
     }
 
     void Update()
@@ -49,7 +54,6 @@ public class ParameterController : MonoBehaviour
             SetParameter("GameMusic", _gameState);
             ChangeState= false;
         }
-
 
     }
 
