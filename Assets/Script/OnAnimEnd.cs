@@ -20,7 +20,7 @@ public class OnAnimEnd : MonoBehaviour
     void Update()
     {
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("PhoneIdle") && !eventTrigger && anim.GetCurrentAnimatorStateInfo(0).length < anim.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("PhoneRevert") && !eventTrigger && anim.GetCurrentAnimatorStateInfo(0).length < anim.GetCurrentAnimatorStateInfo(0).normalizedTime)
         {
             eventTrigger = true;
             animEnded.Invoke();
