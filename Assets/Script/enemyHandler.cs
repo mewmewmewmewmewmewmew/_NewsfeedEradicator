@@ -248,6 +248,14 @@ public class enemyHandler : MonoBehaviour
             return;
         }
 
+        if (this.playerStats.currentHealth <= 0)
+        {
+            this.fightWin.Invoke();
+            this.backToNormal();
+            this.UpdateTexts();
+            return;
+        }
+
         else
         {
             this.enemyAttack.Invoke();

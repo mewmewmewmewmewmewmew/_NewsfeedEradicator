@@ -44,7 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e3ec29a367b754a8afd41ddd3fe11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   enemyLevel: []
+=======
+  enemyLevel:
+  - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
+  - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
+  - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
+>>>>>>> Stashed changes
   stats: {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
   currentHealth: 0
   currentLike: 0
