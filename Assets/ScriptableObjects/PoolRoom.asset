@@ -15,12 +15,12 @@ MonoBehaviour:
   enemyCounter1: 2
   enemyCounter2: 3
   enemyCounter3: 5
-  upgradeCounter1: 1
+  upgradeCounter1: 2
   upgradeCounter2: 2
-  upgradeCounter3: 2
-  GoodNewsCounter1: 5
-  GoodNewsCounter2: 6
-  GoodNewsCounter3: 3
+  upgradeCounter3: 1
+  GoodNewsCounter1: 6
+  GoodNewsCounter2: 4
+  GoodNewsCounter3: 2
   BadNewsCounter1: 1
   BadNewsCounter2: 3
   BadNewsCounter3: 6
