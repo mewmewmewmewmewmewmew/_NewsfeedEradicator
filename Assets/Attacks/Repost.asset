@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b671990031e2e24d8bc011c3c12f77c, type: 3}
-  m_Name: Drip
+  m_Name: Repost
   m_EditorClassIdentifier: 
   effect: 3
   Damage: 0
@@ -19,4 +19,4 @@ MonoBehaviour:
   maxLikeGain: 0
   likeCost: 12
   description: 'Cost: 12 likes - Repeat next attack twice'
-  Icon: {fileID: 3887115542785903532, guid: 26271e30e8b6ab447871f523a026ea64, type: 3}
+  Icon: {fileID: 3887115542785903532, guid: 7baf503488d794b448ddd6f3ac5604ef, type: 3}
