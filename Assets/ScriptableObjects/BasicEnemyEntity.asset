@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BasicEnemyEntity
   m_EditorClassIdentifier: 
   Name: Old Lady
-  health: 20
-  likes: 90
-  nameAttack1: OK Boomer
-  nameAttack2: OK Boomer
-  nameAttack3: OK Boomer
-  nameAttack4: OK Boomer
+  health: 5
+  likes: 6
+  nameAttack1: meme
+  nameAttack2: TouchGrass
+  nameAttack3: denial
+  nameAttack4: denial

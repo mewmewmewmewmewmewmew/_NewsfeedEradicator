@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLevel:
   - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
-  - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
-  - {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
+  - {fileID: 11400000, guid: bb0ca93c6a7d40f418d2623d2977b824, type: 2}
+  - {fileID: 11400000, guid: 27ec088e03398b34f8a055ac24115276, type: 2}
   stats: {fileID: 11400000, guid: ad8df05d9cf83124fbf0e1b7a8eff1fd, type: 2}
   currentHealth: 0
   currentLike: 0
