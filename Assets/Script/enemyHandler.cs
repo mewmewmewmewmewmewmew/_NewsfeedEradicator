@@ -29,6 +29,8 @@ public class enemyHandler : MonoBehaviour
     [SerializeField] private GameObject EnemyPortait;
     [SerializeField] private GameObject sendAttackButton;
 
+    [SerializeField] private Entity[] enemyLevel;
+
     private attackManager attackDico;
     private bool hasAttack;
 
@@ -54,6 +56,8 @@ public class enemyHandler : MonoBehaviour
     {
         genereator = new System.Random();
 
+
+
         this.ConvertDamage = 0;
         this.repeatNextOne = false;
         this.CopyAttack = false;
@@ -64,6 +68,9 @@ public class enemyHandler : MonoBehaviour
 
         this.attackDico = GameObject.FindGameObjectWithTag("Manager").GetComponent<attackManager>();
         this.playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+
+        this.enemy.stats = this.enemyLevel[this.playerStats.currentDifficulty];
+
         this.sendAttack.text = "End Turn";
         this.enemyName.text = this.enemy.stats.Name;
         this.enemyHealth.text = this.enemy.stats.health.ToString();
