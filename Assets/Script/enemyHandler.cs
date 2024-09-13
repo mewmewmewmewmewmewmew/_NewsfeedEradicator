@@ -176,7 +176,7 @@ public class enemyHandler : MonoBehaviour
                     //Debug.Log("PLAYER ONE LIKE BONUS///// Current Player Like : " + this.playerStats.currentLikes + " + " + this.oneLikeBonus);
                     this.playerStats.currentLikes += this.oneLikeBonus;
                 }
-                    
+
 
                 if (this.repeatNextOne)
                 {
@@ -272,7 +272,7 @@ public class enemyHandler : MonoBehaviour
                 this.onelikeCancel = true;
             }
 
-               
+
 
             this.playerStats.currentLikes += this.glowUpBonus;
 
@@ -347,10 +347,10 @@ public class enemyHandler : MonoBehaviour
         }
     }
     private void HealthNegation(int i)
-    { 
+    {
         if (this.attackDico.manager[this.attacskName[i].text].effect == ATTACK_SPECIFICATION.E_RATIO)
         {
-            if(i == 0)
+            if (i == 0)
             {
                 //Debug.Log("RATIO ATTACK");
 
@@ -362,7 +362,7 @@ public class enemyHandler : MonoBehaviour
                 else if (difference < 0)
                     this.playerStats.currentHealth += difference;
             }
-            if(i == 1)
+            if (i == 1)
             {
                 //Debug.Log("RATIO ATTACK");
 
@@ -377,12 +377,17 @@ public class enemyHandler : MonoBehaviour
         }
         else
         {
-            if(i == 0)
-                this.enemy.currentHealth -= this.attackDico.manager[this.attacskName[i].text].Damage;
+            if (i == 0)
+            {
+                if (this.attackDico.manager[this.attacskName[i].text].Damage < 0)
+                    this.playerStats.currentHealth += this.attackDico.manager[this.attacskName[i].text].Damage;
+                else
+                    this.enemy.currentHealth -= this.attackDico.manager[this.attacskName[i].text].Damage;
+            }
             else
                 this.playerStats.currentHealth -= this.attackDico.manager[this.attacskName[i].text].Damage;
         }
-            
+
     }
 
     private void HandleRepost(ATTACK_SPECIFICATION effect)
@@ -424,6 +429,9 @@ public class enemyHandler : MonoBehaviour
                 this.repostGlowUp = true;
                 this.glowUpBonus += 2;
                 break;
+            case ATTACK_SPECIFICATION.E_ITSFINE:
+                this.playerStats.currentHealth += this.attackDico.manager[this.attacskName[0].text].Damage;
+                break;
         }
     }
 
@@ -453,16 +461,41 @@ public class enemyHandler : MonoBehaviour
 
     private void CopyOpponenetAttack(int i)
     {
-        //Debug.Log("COPY ATTACK//////");
-        //Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[i].text].likeCost);
-        this.playerStats.currentLikes += this.likebonusRand;
-        this.playerStats.currentLikes -= this.attackDico.manager[this.attacskName[i].text].likeCost;
-        this.enemy.currentLike -= this.attackDico.manager[this.attacskName[i].text].LikeDamege;
+        Debug.Log("COPY ATTACK//////");
+        Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[i].text].likeCost);
 
-        if(i  == 0)
-            this.HealthNegation(1);
-        else if (i == 1)
+        if (i == 0)
+        {
+            this.enemy.currentLike += this.enemy.likebonusRand;
+            this.enemy.currentLike -= this.attackDico.manager[this.attacskName[i].text].likeCost;
+            this.playerStats.currentLikes -= this.attackDico.manager[this.attacskName[i].text].LikeDamege;
+
+            if (this.attackDico.manager[this.attacskName[i].text].effect == ATTACK_SPECIFICATION.E_RATIO)
+            {
+                int difference = this.enemy.currentLike - this.playerStats.currentLikes;
+
+                //Debug.Log("HEALTH LOOSE : " + this.playerStats.currentHealth + "-" + difference);
+                if (difference >= 0)
+                    this.playerStats.currentHealth -= difference;
+                else if (difference < 0)
+                    this.enemy.currentHealth += difference;
+            }
+
+            else if (this.attackDico.manager[this.attacskName[i].text].effect == ATTACK_SPECIFICATION.E_ITSFINE)
+                this.enemy.currentHealth += this.attackDico.manager[this.attacskName[i].text].Damage;
+
+            else
+                this.playerStats.currentHealth -= this.attackDico.manager[this.attacskName[i].text].Damage;
+        }
+
+        else
+        {
+            this.playerStats.currentLikes += this.enemy.likebonusRand;
+            this.playerStats.currentLikes -= this.attackDico.manager[this.attacskName[i].text].likeCost;
+            this.enemy.currentLike -= this.attackDico.manager[this.attacskName[i].text].LikeDamege;
             this.HealthNegation(0);
+        }
+
     }
 
     public void HandleEnemyAttack()
@@ -489,8 +522,8 @@ public class enemyHandler : MonoBehaviour
             if (this.enemy.onelikeCancel)
             {
                 //Debug.Log("ENEMY ONE LIKE BONUS" + " Current Enemy Like : " + this.enemy.currentLike + " + " + this.enemy.oneLikeBonus);
-                this.enemy.currentLike += this.enemy.oneLikeBonus;           
-            } 
+                this.enemy.currentLike += this.enemy.oneLikeBonus;
+            }
 
             //Debug.Log("GO TO ENEMY HANDLE ATTACKS");
             this.HandleEnemyEffect(this.attackDico.manager[this.attacskName[1].text].effect);
