@@ -18,14 +18,15 @@ public class randomScreen : MonoBehaviour
     public attackManager attackManager;
     public ParameterController sound;
 
-    public Mesh UpGradeMesh;
-    public Material UpGradeMat;
+    public Mesh upgradeMesh;
+    public Material upgradeMaterial;
 
-    public Mesh AttackMesh;
-    public Material AttackMat;
+    public Mesh attackMesh;
+    public Material attackMaterail;
 
-    public Mesh FeedMesh;
-    public Material FeedMat;
+    public Mesh feedMesh;
+    public Material feedMaterail;
+
 
     void Start()
     {
@@ -56,39 +57,31 @@ public class randomScreen : MonoBehaviour
             this.sideScreens[i].transform.SetAsFirstSibling();
 
             if (this.sideScreens[i].CompareTag("FeedPost"))
+            {
                 this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.feedMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.feedMaterail;
+            }
+
+            if (this.sideScreens[i].CompareTag("Enemy"))
+            {
+                this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.attackMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.attackMaterail;
+            }
+
+            if (this.sideScreens[i].CompareTag("Upgrade"))
+            {
+                this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.upgradeMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.upgradeMaterial;
+            }
+
         }
 
         for (int i = 0; i < this.icons.Length; i++)
         {
             this.icons[i].SetActive(true);
-        }
-
-        for (int i = 0; i < this.sideScreens.Length; i++)
-        {
-            if (this.sideScreens[i].CompareTag("FeedPost"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.FeedMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.FeedMat;
-            }
-
-            else if (this.sideScreens[i].CompareTag("Enemy"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.AttackMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.AttackMat;
-            }
-
-            else if (this.sideScreens[i].CompareTag("Upgrade"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.UpGradeMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.UpGradeMat;
-            }
-
-            else
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.FeedMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.FeedMat;
-            }
         }
     }
 
@@ -110,6 +103,16 @@ public class randomScreen : MonoBehaviour
     {
         GameObject temp = currentScreen;
         this.currentScreen.transform.SetAsFirstSibling();
+
+        //if (this.currentScreen.CompareTag("Enemy"))
+        //{
+        //    GameObject[] icons = GameObject.FindGameObjectsWithTag("AttackIcon");
+
+        //    for(int i = 0;i < icons.Length; i++)
+        //    {
+        //        DestroyImmediate(icons[i]);
+        //    }
+        //}
 
         switch (number)
         {
@@ -162,35 +165,6 @@ public class randomScreen : MonoBehaviour
             if (this.sideScreens[i].CompareTag("FeedPost"))
                 this.FeedPostRandom(i);
         }
-
-        for (int i = 0; i < this.sideScreens.Length; i++)
-        {
-            if (this.sideScreens[i].CompareTag("FeedPost"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.FeedMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.FeedMat;
-            }
-
-            else if (this.sideScreens[i].CompareTag("Enemy"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.AttackMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.AttackMat;
-            }
-
-            else if (this.sideScreens[i].CompareTag("Upgrade"))
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.UpGradeMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.UpGradeMat;
-            }
-
-            else
-            {
-                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.FeedMesh;
-                this.icons[i].GetComponent<MeshRenderer>().material = this.FeedMat;
-            }
-        }
-
-
     }
 
     private void HandlePool()
@@ -266,6 +240,13 @@ public class randomScreen : MonoBehaviour
                 this.playerStats.currentDifficulty += 1;
                 this.playerStats.ResetCounters(this.playerStats.currentDifficulty);
             }
+
+
+
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack1].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack2].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack3].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack4].Icon);
 
             return;
         }
