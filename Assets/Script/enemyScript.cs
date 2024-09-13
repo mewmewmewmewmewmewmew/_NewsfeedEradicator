@@ -26,6 +26,8 @@ public class enemyScript : MonoBehaviour
     private attackManager attackDico;
     private playerStats playerStats;
 
+    public enemyHandler enemyHandler;
+
     System.Random genereator;
 
     void Start()
@@ -47,6 +49,8 @@ public class enemyScript : MonoBehaviour
         this.glowUpBonus = 0;
         this.repostGlowUp = false;
         this.onelikeCancel = true;
+
+        this.enemyHandler.UpdateTexts();
     }
 
     public string enemyAttack()

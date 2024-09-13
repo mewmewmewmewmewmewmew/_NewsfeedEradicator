@@ -65,8 +65,6 @@ public class enemyHandler : MonoBehaviour
         this.attackDico = GameObject.FindGameObjectWithTag("Manager").GetComponent<attackManager>();
         this.playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
 
-
-
         this.sendAttack.text = "End Turn";
         this.enemyName.text = this.enemy.stats.Name;
         this.enemyHealth.text = this.enemy.stats.health.ToString();
@@ -314,7 +312,7 @@ public class enemyHandler : MonoBehaviour
         this.playerStats.reactivate = true;
     }
 
-    private void UpdateTexts()
+    public void UpdateTexts()
     {
         this.enemyHealth.text = this.enemy.currentHealth.ToString();
         this.enemyLikes.text = this.enemy.currentLike.ToString();
