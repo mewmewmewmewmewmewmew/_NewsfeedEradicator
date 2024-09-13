@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyScript : MonoBehaviour
 {
+    [SerializeField] private Entity[] enemyLevel;
     public Entity stats;
 
     public int currentHealth;
@@ -33,6 +34,8 @@ public class enemyScript : MonoBehaviour
 
         this.attackDico = GameObject.FindGameObjectWithTag("Manager").GetComponent<attackManager>();
         this.playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+
+        this.stats = this.enemyLevel[this.playerStats.currentDifficulty];
 
         this.currentHealth = this.stats.health;
         this.currentLike = this.stats.likes;
