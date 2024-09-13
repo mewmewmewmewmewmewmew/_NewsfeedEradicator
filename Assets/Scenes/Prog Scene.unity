@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -356,6 +356,11 @@ MonoBehaviour:
   curretnAttack3: 
   curretnAttack4: 
   currentDifficulty: 0
+  badNewsCounter: 0
+  goodNewsCounter: 0
+  enemyCounter: 0
+  upgradeCounter: 0
+  Pool: {fileID: 11400000, guid: 251523ae5bc886d4792f03a8514893fc, type: 2}
 --- !u!4 &200173463
 Transform:
   m_ObjectHideFlags: 0
@@ -551,7 +556,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8120ee9f6c4b4f42a6495a48db66e87, type: 3}
   - {fileID: 21300000, guid: 456b0881b58fcf24c8d9675a3851a9a3, type: 3}
   - {fileID: 21300000, guid: 221157b209dbada48b1660c7a3451f5c, type: 3}
-  dogManager:
   - {fileID: 21300000, guid: c3f2fffd0e1f03244b0e6e7b0d7f7823, type: 3}
   - {fileID: 21300000, guid: 37d4e61b674e9674ba4f6a2bdeeeb81e, type: 3}
   - {fileID: 21300000, guid: b73e40f25992bde48839093317b20d3b, type: 3}
@@ -560,6 +564,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6bb4cf25a0dd9884a92c42ee7afd637a, type: 3}
   - {fileID: 21300000, guid: 75f335ba69750d84ba7b9e7973e6ab16, type: 3}
   - {fileID: 21300000, guid: 5eefd2d09b6db7345b3401ad439f06b7, type: 3}
+  dogManager:
+  - {fileID: 21300000, guid: 49c4489a16866354e9578ef5975b30e6, type: 3}
+  - {fileID: 21300000, guid: 7a810bcd634571b4baa3d775bf5f066a, type: 3}
+  - {fileID: 21300000, guid: 7105cb76650284c43a74a122198ef18b, type: 3}
+  - {fileID: 21300000, guid: ba00fe587e2578646b72a005accecee2, type: 3}
+  - {fileID: 21300000, guid: 08870400707540e4b9990efa353e0fac, type: 3}
+  - {fileID: 21300000, guid: 5a0bdf5c2716a3d4fb03683afdc592f2, type: 3}
   catPhrase:
   - Gimmie treats!
   - '#angy'
@@ -570,7 +581,6 @@ MonoBehaviour:
   - 'Por que? '
   - Certified bruh moment
   - Fit check
-  dogPhrase:
   - Just a couple of besties
   - "Let\u2019s go to the beach, beach!"
   - 'Look at all those chickens! '
@@ -580,6 +590,13 @@ MonoBehaviour:
   - '#aesthetic #tumblr #justgirlythings'
   - "I guess we\u2019ll neva know #graduate"
   - 'Bugs are friends '
+  dogPhrase:
+  - ET IS AMONG US #truestory
+  - Earth is flat as a breadboard
+  - '#NOVAX #5G #TRUMP2025 #COVIDISNOREAL'
+  - Pics i took today #cute #becarefuloutside
+  - Last time we teached you about drying your pets, now...
+  - do you know about reptilians ?
 --- !u!1 &288949775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,11 +1123,11 @@ MonoBehaviour:
   prefabList:
   - {fileID: 7356120480354719658, guid: f29d9794d12bffa41a555524014b7351, type: 3}
   - {fileID: 7356120480354719658, guid: 59f57c4fb630eff47b43c636a4871e8a, type: 3}
-  - {fileID: 7356120480354719658, guid: c96730ed0729cbd4cb117dc494711041, type: 3}
   - {fileID: 7356120480354719658, guid: 5d9c9f0c8480fbe4786e09c730944eb1, type: 3}
   - {fileID: 7356120480354719658, guid: a15b77d86cb37c142a3bfe741bd1a87e, type: 3}
   playerStats: {fileID: 200173462}
   bonusManager: {fileID: 277441591}
+  attackManager: {fileID: 133340764}
   sound: {fileID: 1148386727}
 --- !u!224 &1047112964
 RectTransform:

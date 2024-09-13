@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   health: 20
-  likes: 157
+  likes: 90
   nameAttack1: OK Boomer
   nameAttack2: OK Boomer
   nameAttack3: OK Boomer

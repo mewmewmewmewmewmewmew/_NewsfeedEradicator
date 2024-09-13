@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   health: 20
-  likes: 136
-  nameAttack1: GlowUp
+  likes: 90
+  nameAttack1: TouchGrass
   nameAttack2: GlowUp
   nameAttack3: GlowUp
   nameAttack4: GlowUp

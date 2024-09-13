@@ -20,4 +20,4 @@ MonoBehaviour:
   likeCost: 6
   description: 'Cost: 6 likes | Likes Gained: 4-8 - Gain 2 Likes at the start of
     all future turns. This is stackable'
-  Icon: {fileID: 6320081747834012843, guid: a04324e66085097429147f7666e35846, type: 3}
+  Icon: {fileID: 3887115542785903532, guid: 8aa3021ba74f4d74bae36ac3bf2d9e50, type: 3}

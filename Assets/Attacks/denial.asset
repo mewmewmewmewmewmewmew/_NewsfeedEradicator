@@ -20,4 +20,4 @@ MonoBehaviour:
   likeCost: 4
   description: 'Cost: 4 likes - Convert next enemy attack you received damage into
     likes. You still take damage'
-  Icon: {fileID: 4826569557740828880, guid: 69d75ed2af42e3a42a91a08593fc1b87, type: 3}
+  Icon: {fileID: 3887115542785903532, guid: 4d57a24914a064a49865fc3613fbff4e, type: 3}

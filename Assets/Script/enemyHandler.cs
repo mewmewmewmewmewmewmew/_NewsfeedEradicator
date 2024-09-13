@@ -1,7 +1,4 @@
-using System.Runtime.CompilerServices;
-using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -161,51 +158,51 @@ public class enemyHandler : MonoBehaviour
 
     public void SendAttack()
     {
-        Debug.Log("--------START OF THE FUNCTION PLAYER ATTACK-----------");
-        Debug.Log("Current Enemy Health : " + this.enemy.currentHealth + "Current Enemy Like : " + this.enemy.currentLike);
-        Debug.Log("Current Player Health : " + this.playerStats.currentHealth + "Current Player Like : " + this.playerStats.currentLikes);
+        //Debug.Log("--------START OF THE FUNCTION PLAYER ATTACK-----------");
+        //Debug.Log("Current Enemy Health : " + this.enemy.currentHealth + "Current Enemy Like : " + this.enemy.currentLike);
+        //Debug.Log("Current Player Health : " + this.playerStats.currentHealth + "Current Player Like : " + this.playerStats.currentLikes);
 
         for (int i = 0; i < this.attacks.Length; i++)
         {
             if (i == attackSelection)
             {
                 this.likebonusRand = genereator.Next(this.attackDico.manager[this.attacskName[0].text].minLikeGain, this.attackDico.manager[this.attacskName[0].text].maxLikeGain + 1);
-                Debug.Log("BONUS PLAYER LIKE//////" + this.playerStats.currentLikes + "+" + this.likebonusRand);
+                //Debug.Log("BONUS PLAYER LIKE//////" + this.playerStats.currentLikes + "+" + this.likebonusRand);
 
                 this.playerAttack.Invoke();
 
                 if (this.onelikeCancel)
                 {
-                    Debug.Log("PLAYER ONE LIKE BONUS///// Current Player Like : " + this.playerStats.currentLikes + " + " + this.oneLikeBonus);
+                    //Debug.Log("PLAYER ONE LIKE BONUS///// Current Player Like : " + this.playerStats.currentLikes + " + " + this.oneLikeBonus);
                     this.playerStats.currentLikes += this.oneLikeBonus;
                 }
                     
 
                 if (this.repeatNextOne)
                 {
-                    Debug.Log("GO TO PLAYER HANDLE REPOST");
+                    //Debug.Log("GO TO PLAYER HANDLE REPOST");
                     this.HandleRepost(this.attackDico.manager[this.attacskName[0].text].effect);
                 }
 
-                Debug.Log("GO TO PLAYER HANDLE ATTACK");
+                //Debug.Log("GO TO PLAYER HANDLE ATTACK");
                 this.HandleAttacks(this.attackDico.manager[this.attacskName[0].text].effect);
 
                 if (!this.CopyAttack)
                 {
-                    Debug.Log("CLASSIC ATTACK//////");
-                    Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[0].text].likeCost);
+                    //Debug.Log("CLASSIC ATTACK//////");
+                    //Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[0].text].likeCost);
                     this.playerStats.currentLikes += this.likebonusRand;
                     this.playerStats.currentLikes -= this.attackDico.manager[this.attacskName[0].text].likeCost;
                     this.enemy.currentLike -= this.attackDico.manager[this.attacskName[0].text].LikeDamege;
 
-                    Debug.Log("HEALTH NEAGTION FUNC//////////");
+                    //Debug.Log("HEALTH NEAGTION FUNC//////////");
                     this.HealthNegation(0);
                 }
                 else
                 {
-                    Debug.Log("COPY OPPONENT ATTACK//////");
+                    //Debug.Log("COPY OPPONENT ATTACK//////");
                     this.likebonusRand = genereator.Next(this.attackDico.manager[this.attacskName[1].text].minLikeGain, this.attackDico.manager[this.attacskName[1].text].maxLikeGain + 1);
-                    Debug.Log("NEW BONUS PLAYER LIKE//////" + this.playerStats.currentLikes + "+" + this.likebonusRand);
+                    //Debug.Log("NEW BONUS PLAYER LIKE//////" + this.playerStats.currentLikes + "+" + this.likebonusRand);
                     this.CopyOpponenetAttack(1);
                 }
 
@@ -242,6 +239,7 @@ public class enemyHandler : MonoBehaviour
             this.sendAttack.text = "End Turn";
             this.hasAttack = false;
             this.UpdateTexts();
+            this.checkCost();
             return;
         }
 
@@ -326,24 +324,24 @@ public class enemyHandler : MonoBehaviour
         switch (effect)
         {
             case ATTACK_SPECIFICATION.E_DENIAL:
-                Debug.Log("DENIAL ATTACK");
+                //Debug.Log("DENIAL ATTACK");
                 this.ConvertDamage += 1;
                 break;
             case ATTACK_SPECIFICATION.E_REPOST:
-                Debug.Log("repost ATTACK");
+                //Debug.Log("repost ATTACK");
                 this.repeatNextOne = true;
                 break;
             case ATTACK_SPECIFICATION.E_BOOMER:
-                Debug.Log("boomer ATTACK");
+                //Debug.Log("boomer ATTACK");
                 this.CopyAttack = true;
                 break;
             case ATTACK_SPECIFICATION.E_EXTRA:
-                Debug.Log("EXTRA ATTACK");
+                //Debug.Log("EXTRA ATTACK");
                 this.onelikeCancel = false;
                 this.futurOneLikeBonus += 1;
                 break;
             case ATTACK_SPECIFICATION.E_GLOWUP:
-                Debug.Log("GLOWUP ATTACK");
+                //Debug.Log("GLOWUP ATTACK");
                 this.glowUpBonus += 2;
                 break;
         }
@@ -354,11 +352,11 @@ public class enemyHandler : MonoBehaviour
         {
             if(i == 0)
             {
-                Debug.Log("RATIO ATTACK");
+                //Debug.Log("RATIO ATTACK");
 
                 int difference = this.playerStats.currentLikes - this.enemy.currentLike;
 
-                Debug.Log("HEALTH LOOSE : " + this.enemy.currentHealth + "-" + difference);
+                //Debug.Log("HEALTH LOOSE : " + this.enemy.currentHealth + "-" + difference);
                 if (difference >= 0)
                     this.enemy.currentHealth -= difference;
                 else if (difference < 0)
@@ -366,11 +364,11 @@ public class enemyHandler : MonoBehaviour
             }
             if(i == 1)
             {
-                Debug.Log("RATIO ATTACK");
+                //Debug.Log("RATIO ATTACK");
 
                 int difference = this.enemy.currentLike - this.playerStats.currentLikes;
 
-                Debug.Log("HEALTH LOOSE : " + this.playerStats.currentHealth + "-" + difference);
+                //Debug.Log("HEALTH LOOSE : " + this.playerStats.currentHealth + "-" + difference);
                 if (difference >= 0)
                     this.playerStats.currentHealth -= difference;
                 else if (difference < 0)
@@ -392,17 +390,17 @@ public class enemyHandler : MonoBehaviour
         switch (effect)
         {
             case ATTACK_SPECIFICATION.E_DENIAL:
-                Debug.Log("DENIAL REPOST");
+                //Debug.Log("DENIAL REPOST");
                 this.ConvertDamage += 1;
                 break;
             case ATTACK_SPECIFICATION.E_MEME:
-                Debug.Log("MEME REPOST");
+                //Debug.Log("MEME REPOST");
                 Debug.Log(likebonusRand);
                 this.playerStats.currentLikes += this.likebonusRand;
                 this.enemy.currentHealth -= this.attackDico.manager[this.attacskName[0].text].Damage;
                 break;
             case ATTACK_SPECIFICATION.E_RATIO:
-                Debug.Log("RATIO REPOST");
+                //Debug.Log("RATIO REPOST");
                 int difference = this.playerStats.currentLikes - this.enemy.currentLike;
                 if (difference >= 0)
                     this.enemy.currentHealth -= difference;
@@ -410,19 +408,19 @@ public class enemyHandler : MonoBehaviour
                     this.playerStats.currentHealth += difference;
                 break;
             case ATTACK_SPECIFICATION.E_TUCHGRASS:
-                Debug.Log("TOUCHGRASS REPOST");
+                //Debug.Log("TOUCHGRASS REPOST");
                 this.enemy.currentHealth -= this.attackDico.manager[this.attacskName[0].text].Damage;
                 break;
             case ATTACK_SPECIFICATION.E_BOOMER:
-                Debug.Log("BOOMER REPOST");
+                //Debug.Log("BOOMER REPOST");
                 this.CopyOpponenetAttack(1);
                 break;
             case ATTACK_SPECIFICATION.E_EXTRA:
-                Debug.Log("EXTRA REPOST");
+                //Debug.Log("EXTRA REPOST");
                 this.futurOneLikeBonus += 1;
                 break;
             case ATTACK_SPECIFICATION.E_GLOWUP:
-                Debug.Log("GLOWUP REPOST");
+                //Debug.Log("GLOWUP REPOST");
                 this.repostGlowUp = true;
                 this.glowUpBonus += 2;
                 break;
@@ -434,20 +432,20 @@ public class enemyHandler : MonoBehaviour
         switch (effect)
         {
             case ATTACK_SPECIFICATION.E_DENIAL:
-                Debug.Log("DENIAL ENEMY ATTACK");
+                //Debug.Log("DENIAL ENEMY ATTACK");
                 this.enemy.ConvertDamage += 1;
                 break;
             case ATTACK_SPECIFICATION.E_BOOMER:
-                Debug.Log("boomer ATTACK");
+                //Debug.Log("boomer ATTACK");
                 this.enemy.CopyAttack = true;
                 break;
             case ATTACK_SPECIFICATION.E_EXTRA:
-                Debug.Log("EXTRA ATTACK");
+                //Debug.Log("EXTRA ATTACK");
                 this.enemy.onelikeCancel = false;
                 this.enemy.futurOneLikeBonus += 1;
                 break;
             case ATTACK_SPECIFICATION.E_GLOWUP:
-                Debug.Log("GLOWUP ATTACK");
+                //Debug.Log("GLOWUP ATTACK");
                 this.enemy.glowUpBonus += 2;
                 break;
         }
@@ -455,8 +453,8 @@ public class enemyHandler : MonoBehaviour
 
     private void CopyOpponenetAttack(int i)
     {
-        Debug.Log("COPY ATTACK//////");
-        Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[i].text].likeCost);
+        //Debug.Log("COPY ATTACK//////");
+        //Debug.Log("LIKE LOOSE : " + this.playerStats.currentLikes + "-" + this.attackDico.manager[this.attacskName[i].text].likeCost);
         this.playerStats.currentLikes += this.likebonusRand;
         this.playerStats.currentLikes -= this.attackDico.manager[this.attacskName[i].text].likeCost;
         this.enemy.currentLike -= this.attackDico.manager[this.attacskName[i].text].LikeDamege;
@@ -475,26 +473,26 @@ public class enemyHandler : MonoBehaviour
         this.attacksDescription[1].text = this.attackDico.manager[enemyAttack].description;
 
 
-        Debug.Log("--------START OF THE FUNCTION ENEMY ATTACK-----------");
-        Debug.Log("Current Enemy Health : " + this.enemy.currentHealth + "Current Enemy Like : " + this.enemy.currentLike);
-        Debug.Log("Current Player Health : " + this.playerStats.currentHealth + "Current Player Like : " + this.playerStats.currentLikes);
+        //Debug.Log("--------START OF THE FUNCTION ENEMY ATTACK-----------");
+        //Debug.Log("Current Enemy Health : " + this.enemy.currentHealth + "Current Enemy Like : " + this.enemy.currentLike);
+        //Debug.Log("Current Player Health : " + this.playerStats.currentHealth + "Current Player Like : " + this.playerStats.currentLikes);
 
         Debug.Log(this.enemy.currentLike + "+" + this.enemy.glowUpBonus);
         this.enemy.currentLike += this.enemy.glowUpBonus;
 
         this.enemy.likebonusRand = genereator.Next(this.attackDico.manager[enemyAttack].minLikeGain, this.attackDico.manager[enemyAttack].maxLikeGain + 1);
-        Debug.Log("LIKE GAIN :" + this.enemy.likebonusRand);
+        //Debug.Log("LIKE GAIN :" + this.enemy.likebonusRand);
 
         if (this.enemy.currentLike - this.attackDico.manager[enemyAttack].likeCost >= 0)
         {
 
             if (this.enemy.onelikeCancel)
             {
-                Debug.Log("ENEMY ONE LIKE BONUS" + " Current Enemy Like : " + this.enemy.currentLike + " + " + this.enemy.oneLikeBonus);
+                //Debug.Log("ENEMY ONE LIKE BONUS" + " Current Enemy Like : " + this.enemy.currentLike + " + " + this.enemy.oneLikeBonus);
                 this.enemy.currentLike += this.enemy.oneLikeBonus;           
             } 
 
-            Debug.Log("GO TO ENEMY HANDLE ATTACKS");
+            //Debug.Log("GO TO ENEMY HANDLE ATTACKS");
             this.HandleEnemyEffect(this.attackDico.manager[this.attacskName[1].text].effect);
 
 
@@ -502,8 +500,8 @@ public class enemyHandler : MonoBehaviour
 
             if (!this.enemy.CopyAttack)
             {
-                Debug.Log("CLASSIC ATTACK//////");
-                Debug.Log("LIKE LOOSE : " + this.enemy.currentLike + "-" + this.attackDico.manager[this.attacskName[1].text].likeCost);
+                //Debug.Log("CLASSIC ATTACK//////");
+                //Debug.Log("LIKE LOOSE : " + this.enemy.currentLike + "-" + this.attackDico.manager[this.attacskName[1].text].likeCost);
                 this.playerStats.currentLikes -= this.attackDico.manager[enemyAttack].LikeDamege;
                 this.enemy.currentLike -= this.attackDico.manager[enemyAttack].likeCost;
                 this.enemy.currentLike += this.enemy.likebonusRand;
@@ -512,14 +510,14 @@ public class enemyHandler : MonoBehaviour
             }
             else
             {
-                Debug.Log("ENEMY COPY MY ATTACK");
+                //Debug.Log("ENEMY COPY MY ATTACK");
                 this.likebonusRand = genereator.Next(this.attackDico.manager[this.attacskName[0].text].minLikeGain, this.attackDico.manager[this.attacskName[1].text].maxLikeGain + 1);
                 this.CopyOpponenetAttack(0);
             }
 
             if (this.ConvertDamage != 0)
             {
-                Debug.Log("CONVERTING THE DAMAGE INTO LIKES");
+                //Debug.Log("CONVERTING THE DAMAGE INTO LIKES");
                 for (int i = 0; i < this.ConvertDamage; i++)
                 {
                     this.playerStats.currentLikes += this.attackDico.manager[enemyAttack].Damage;

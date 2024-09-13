@@ -41,7 +41,6 @@ public class PicCrewGenerator : MonoBehaviour
 
     void RandomizePicCrewAttribute( List<Sprite> myAttributeList, Image image)
     {
-
         image.sprite = myAttributeList[Random.Range(0, myAttributeList.Count)];
         Debug.Log(image.sprite + myAttributeList[0].name);
 
@@ -51,7 +50,6 @@ public class PicCrewGenerator : MonoBehaviour
     {
         for (int i = 0; i < AllAttributeLists.Count; i++)
         {
-
             RandomizePicCrewAttribute(AllAttributeLists[i], images[i]);
         }
     }
