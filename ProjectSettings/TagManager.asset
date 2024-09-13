@@ -13,6 +13,9 @@ TagManager:
   - Canvas
   - Mask
   - AttackIcon
+  - FeedPost
+  - FeedText
+  - Screen
   layers:
   - Default
   - TransparentFX

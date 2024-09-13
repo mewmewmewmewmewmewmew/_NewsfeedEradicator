@@ -26,15 +26,12 @@ public class playerStats : MonoBehaviour
     public int enemyCounter;
     public int upgradeCounter;
 
-    [SerializeField]private Pool Pool;
+    public Pool Pool;
 
 
     void Start()
     {
         this.currentDifficulty = 0;
-
-        this.badNewsCounter = 1;
-        this.goodNewsCounter = 5;
 
         this.currentHealth = this.stats.health;
         this.currentLikes = this.stats.likes;;

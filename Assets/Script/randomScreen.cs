@@ -5,7 +5,7 @@ public class randomScreen : MonoBehaviour
 {
     public GameObject[] icons;
     public GameObject[] prefabList;
-    private GameObject currentScreen;
+    public GameObject currentScreen;
     private GameObject[] sideScreens;
 
     private int numberOne;
