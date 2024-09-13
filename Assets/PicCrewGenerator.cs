@@ -26,9 +26,17 @@ public class PicCrewGenerator : MonoBehaviour
     void Start()
     {
         //5
-        images.Add(Clothes);  images.Add(Eye); images.Add(Hair); images.Add (Base); images.Add(Mouth);
+        images.Add(Clothes);
+        images.Add(Eye); 
+        images.Add(Hair); 
+        images.Add (Base); 
+        images.Add(Mouth);
         //5
-        AllAttributeLists.Add(ClothesAttributes); AllAttributeLists.Add(EyeAttributes); AllAttributeLists.Add(HairAttributes); AllAttributeLists.Add(BaseAttributes); AllAttributeLists.Add(MouthAttributes);
+        AllAttributeLists.Add(ClothesAttributes); 
+        AllAttributeLists.Add(EyeAttributes);
+        AllAttributeLists.Add(HairAttributes);
+        AllAttributeLists.Add(BaseAttributes);
+        AllAttributeLists.Add(MouthAttributes);
         RandomizeAllPicCrewAttributes();
     }
 
@@ -45,4 +53,15 @@ public class PicCrewGenerator : MonoBehaviour
             RandomizePicCrewAttribute(AllAttributeLists[i], images[i]);
         }
     }
+    /*
+    public void iterateAttributeUp(List<Sprite> myAttributeList, Image image)
+    {
+        image.sprite = myAttributeList
+    }
+
+    void setAttribute(List<Sprite> myAttributeList, Image image)
+    {
+
+    }
+    */
 }
