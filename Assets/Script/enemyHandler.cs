@@ -54,8 +54,6 @@ public class enemyHandler : MonoBehaviour
     {
         genereator = new System.Random();
 
-
-
         this.ConvertDamage = 0;
         this.repeatNextOne = false;
         this.CopyAttack = false;

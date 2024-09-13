@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8b8ede01f6ddda40b7feb50604d2802, type: 3}
-  m_Name: Icon
+  m_Name: Drip
   m_EditorClassIdentifier: 
   SlidingDistance: 1
-  growingMax: 0.5
-  growingMin: 0.21
+  growingMax: 3.6
+  growingMin: 3.33
