@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class randomScreen : MonoBehaviour
 {
@@ -21,6 +15,7 @@ public class randomScreen : MonoBehaviour
 
     public playerStats playerStats;
     public bonusManager bonusManager;
+    public attackManager attackManager;
     public ParameterController sound;
 
     void Start()
@@ -39,7 +34,7 @@ public class randomScreen : MonoBehaviour
 
         this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
 
-        while (this.currentScreen.CompareTag("Enemy") || this.currentScreen.CompareTag("Upgrade") || this.currentScreen.CompareTag("Cat") || this.currentScreen.CompareTag("Dog"))
+        while (this.currentScreen.CompareTag("Enemy") || this.currentScreen.CompareTag("Upgrade") || this.currentScreen.CompareTag("FeedPost"))
         {
             DestroyImmediate(this.currentScreen, true);
             this.currentScreen = Instantiate(this.prefabList[genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
@@ -51,14 +46,9 @@ public class randomScreen : MonoBehaviour
         {
             this.sideScreens[i].transform.SetAsFirstSibling();
 
-            if (this.sideScreens[i].CompareTag("Cat"))
-                this.bonusManager.getRandomCatImages(this.sideScreens[i]);
-
-            if (this.sideScreens[i].CompareTag("Dog"))
-                this.bonusManager.getRandomDogImage(this.sideScreens[i]);
+            if (this.sideScreens[i].CompareTag("FeedPost"))
+                this.FeedPostRandom(i);
         }
-
-        
 
         for (int i = 0; i < this.icons.Length; i++)
         {
@@ -84,6 +74,16 @@ public class randomScreen : MonoBehaviour
     {
         GameObject temp = currentScreen;
         this.currentScreen.transform.SetAsFirstSibling();
+
+        //if (this.currentScreen.CompareTag("Enemy"))
+        //{
+        //    GameObject[] icons = GameObject.FindGameObjectsWithTag("AttackIcon");
+
+        //    for(int i = 0;i < icons.Length; i++)
+        //    {
+        //        DestroyImmediate(icons[i]);
+        //    }
+        //}
 
         switch (number)
         {
@@ -126,20 +126,47 @@ public class randomScreen : MonoBehaviour
         this.sideScreens[1] = Instantiate(this.prefabList[numberTwo], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
         this.sideScreens[2] = Instantiate(this.prefabList[numberThree], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
 
-        
+        this.HandlePool();
+
 
         for (int i = 0; i < this.sideScreens.Length; i++)
         {
             this.sideScreens[i].transform.SetAsFirstSibling();
 
-            if (this.sideScreens[i].CompareTag("Cat"))
-                this.bonusManager.getRandomCatImages(this.sideScreens[i]);
-
-            if (this.sideScreens[i].CompareTag("Dog"))
-                this.bonusManager.getRandomDogImage(this.sideScreens[i]);
+            if (this.sideScreens[i].CompareTag("FeedPost"))
+                this.FeedPostRandom(i);
         }
+    }
+
+    private void HandlePool()
+    {
+        List<string> list = new List<string>();
+
+        if (this.playerStats.badNewsCounter == 0 && this.playerStats.goodNewsCounter == 0)
+            list.Add("FeedPost");
+
+        if (this.playerStats.upgradeCounter == 0)
+            list.Add("Upgrade");
+
+        bool isOkay = true;
         
-       
+        for(int i = 0; i < this.sideScreens.Length; i++)
+        {
+            for(int j = 0; j < list.Count; j++)
+            {
+                if (this.sideScreens[i].CompareTag(list[j]))
+                    isOkay = false;
+            }
+
+            if (!isOkay)
+            {
+                DestroyImmediate(this.sideScreens[i], true);
+                this.sideScreens[i] = Instantiate(this.prefabList[this.genereator.Next(this.prefabList.Length)], new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform); ;
+                i--;
+            }
+
+            isOkay = true;
+        }
     }
 
     public void MoveScreen(Vector3 position)
@@ -178,19 +205,32 @@ public class randomScreen : MonoBehaviour
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);
             sound.SetParameter("GameMusic", playerStats.currentDifficulty + 1);
+
+            if (--this.playerStats.enemyCounter == 0) 
+            {
+                this.playerStats.currentDifficulty += 1;
+                this.playerStats.ResetCounters(this.playerStats.currentDifficulty);
+            }
+
+
+
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack1].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack2].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack3].Icon);
+            //Instantiate(this.attackManager.manager[this.playerStats.curretnAttack4].Icon);
+
             return;
         }
 
-        else if (currentScreen.CompareTag("Cat"))
+        else if (currentScreen.CompareTag("FeedPost"))
         {
             sound.SetParameter("GameMusic", 0);
-            this.currentScreen.GetComponent<CatBonus>().AddHealth();
-        }
+            bool good = this.currentScreen.GetComponent<CatBonus>().isEvil;
 
-        else if (currentScreen.CompareTag("Dog"))
-        {
-            sound.SetParameter("GameMusic", 0);
-            this.currentScreen.GetComponent<DogBonus>().AddLikes();
+            if (good) 
+                this.playerStats.badNewsCounter--;
+            else 
+                this.playerStats.goodNewsCounter--;
         }
 
         else if (currentScreen.CompareTag("Upgrade"))
@@ -199,6 +239,7 @@ public class randomScreen : MonoBehaviour
             this.icons[0].gameObject.SetActive(false);
             this.icons[1].gameObject.SetActive(false);
             this.icons[2].gameObject.SetActive(false);
+            this.playerStats.upgradeCounter--;
             return;
         }
 
@@ -207,6 +248,29 @@ public class randomScreen : MonoBehaviour
             this.icons[0].gameObject.SetActive(true);
             this.icons[1].gameObject.SetActive(true);
             this.icons[2].gameObject.SetActive(true);
+        }
+    }
+
+    private void FeedPostRandom(int number)
+    {
+        int lol = this.genereator.Next(1);
+
+        if (this.playerStats.goodNewsCounter == 0)
+            lol = 1;
+
+        if(this.playerStats.badNewsCounter == 0) 
+            lol = 0;
+
+        if(lol == 0)
+        {
+            this.bonusManager.getRandomCatImages(this.sideScreens[number]);
+            this.sideScreens[number].GetComponent<CatBonus>().isEvil = false;
+        }
+
+        else if (lol == 1)
+        {
+            this.bonusManager.getRandomDogImage(this.sideScreens[number]);
+            this.sideScreens[number].GetComponent<CatBonus>().isEvil = true;
         }
     }
 }

@@ -11,7 +11,8 @@ public enum ATTACK_SPECIFICATION
     E_TUCHGRASS,
     E_BOOMER, 
     E_EXTRA, 
-    E_GLOWUP
+    E_GLOWUP,
+    E_ITSFINE
 }
 
 [CreateAssetMenu(fileName = "newStat", menuName = "Attack")]
