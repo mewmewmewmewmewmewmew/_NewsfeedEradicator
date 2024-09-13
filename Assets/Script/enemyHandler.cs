@@ -8,6 +8,9 @@ public class enemyHandler : MonoBehaviour
 {
     [SerializeField] enemyScript enemy;
     private playerStats playerStats;
+    private randomScreen screen;
+
+    public GameObject dedScreen;
 
     [SerializeField] private TextMeshProUGUI sendAttack;
     [SerializeField] private TextMeshProUGUI enemyName;
@@ -64,6 +67,7 @@ public class enemyHandler : MonoBehaviour
 
         this.attackDico = GameObject.FindGameObjectWithTag("Manager").GetComponent<attackManager>();
         this.playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+        this.screen = GameObject.FindGameObjectWithTag("Screen").GetComponent<randomScreen>();
 
         this.sendAttack.text = "End Turn";
         this.enemyName.text = this.enemy.stats.Name;
@@ -227,6 +231,12 @@ public class enemyHandler : MonoBehaviour
             }
         }
 
+        if(this.playerStats.currentHealth <= 0)
+        {
+            DestroyImmediate(this.screen.currentScreen);
+            this.screen.currentScreen = Instantiate(this.dedScreen, new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+        }
+
         if (this.enemy.currentHealth <= 0)
         {
             this.fightWin.Invoke();
@@ -282,6 +292,29 @@ public class enemyHandler : MonoBehaviour
                 this.repostGlowUp = false;
                 this.glowUpBonus -= 2;
             }
+
+            if (this.playerStats.currentHealth <= 0)
+            {
+                DestroyImmediate(this.screen.currentScreen);
+                this.screen.currentScreen = Instantiate(this.dedScreen, new Vector3(0, 0, 5), Quaternion.identity, GameObject.FindGameObjectWithTag("Mask").transform);
+                this.playerStats.reactivate = true;
+
+                this.playerStats.currentDifficulty = 0;
+
+                this.playerStats.currentHealth = this.playerStats.stats.health;
+                this.playerStats.currentLikes = this.playerStats.stats.likes; ;
+
+                this.playerStats.curretnAttack1 = this.playerStats.stats.nameAttack1;
+                this.playerStats.curretnAttack2 = this.playerStats.stats.nameAttack2;
+                this.playerStats.curretnAttack3 = this.playerStats.stats.nameAttack3;
+                this.playerStats.curretnAttack4 = this.playerStats.stats.nameAttack4;
+
+                this.playerStats.enemyCounter = this.playerStats.Pool.enemyCounter1;
+                this.playerStats.upgradeCounter = this.playerStats.Pool.upgradeCounter1;
+                this.playerStats.badNewsCounter = this.playerStats.Pool.BadNewsCounter1;
+                this.playerStats.goodNewsCounter = this.playerStats.Pool.GoodNewsCounter1;
+            }
+
             this.UpdateTexts();
             this.checkCost();
         }
@@ -312,7 +345,7 @@ public class enemyHandler : MonoBehaviour
         this.playerStats.reactivate = true;
     }
 
-    public void UpdateTexts()
+    private void UpdateTexts()
     {
         this.enemyHealth.text = this.enemy.currentHealth.ToString();
         this.enemyLikes.text = this.enemy.currentLike.ToString();

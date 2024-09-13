@@ -1655,6 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3304801231770141200}
+  dedScreen: {fileID: 7356120480354719658, guid: d7f05d97e070fbe47a427aed9f5b4558, type: 3}
   sendAttack: {fileID: 5209580248448851341}
   enemyName: {fileID: 2441767947706816273}
   health: {fileID: 4913293351757732809}
