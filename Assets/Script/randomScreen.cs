@@ -18,6 +18,16 @@ public class randomScreen : MonoBehaviour
     public attackManager attackManager;
     public ParameterController sound;
 
+    public Mesh upgradeMesh;
+    public Material upgradeMaterial;
+
+    public Mesh attackMesh;
+    public Material attackMaterail;
+
+    public Mesh feedMesh;
+    public Material feedMaterail;
+
+
     void Start()
     {
         this.sideScreens = new GameObject[3];
@@ -47,7 +57,26 @@ public class randomScreen : MonoBehaviour
             this.sideScreens[i].transform.SetAsFirstSibling();
 
             if (this.sideScreens[i].CompareTag("FeedPost"))
+            {
                 this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.feedMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.feedMaterail;
+            }
+
+            if (this.sideScreens[i].CompareTag("Enemy"))
+            {
+                this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.attackMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.attackMaterail;
+            }
+
+            if (this.sideScreens[i].CompareTag("Upgrade"))
+            {
+                this.FeedPostRandom(i);
+                this.icons[i].GetComponent<MeshFilter>().sharedMesh = this.upgradeMesh;
+                this.icons[i].GetComponent<MeshRenderer>().material = this.upgradeMaterial;
+            }
+
         }
 
         for (int i = 0; i < this.icons.Length; i++)
