@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Icon
   m_EditorClassIdentifier: 
   SlidingDistance: 1
-  growingMax: 0.17
-  growingMin: 0.15
+  growingMax: 0.2
+  growingMin: 0.14
