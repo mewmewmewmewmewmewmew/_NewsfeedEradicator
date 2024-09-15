@@ -22,6 +22,7 @@ public class ParameterController : MonoBehaviour
         eventInstance.start();
         eventInstance.setParameterByName("HPRatio", health /*playerStats.currentHealth/12*/);
         eventInstance.setParameterByName("HPRatio", 1);
+
     }
 
     // Function to modify the parameter
