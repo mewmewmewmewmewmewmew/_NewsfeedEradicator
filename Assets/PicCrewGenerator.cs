@@ -2,6 +2,7 @@ using Microsoft.Unity.VisualStudio.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
@@ -14,7 +15,7 @@ public class PicCrewGenerator : MonoBehaviour
     Dictionary<string, UnityEngine.UI.Image> _picCrewObjectPairs = new Dictionary<string, UnityEngine.UI.Image>();
 
 
-    //public List<int> indexList = new List<int>();
+    public int[] attributeIndices;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class PicCrewGenerator : MonoBehaviour
             Debug.Log(key);
             _picCrewObjectPairs.Add(key, imageComponent);
         }
+        //indices = new int[PicCrewResources.picCrewFolderPairs.Count];
         RandomizeAllPicCrewAttributes();
     }
 
@@ -59,7 +61,6 @@ public class PicCrewGenerator : MonoBehaviour
         {
             Debug.Log(key);
             RandomizePicCrewAttribute(PicCrewResources.picCrewFolderPairs[key], _picCrewObjectPairs[key]);
-            
         }
     }
 

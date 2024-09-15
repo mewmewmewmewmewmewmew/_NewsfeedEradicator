@@ -9,6 +9,5 @@ public class Initialize : MonoBehaviour
     void Start()
     {
         PicCrewResources.LoadPicCrew();
-
     }
 }
