@@ -1774,9 +1774,9 @@ MonoBehaviour:
   bonusManager: {fileID: 277441591}
   attackManager: {fileID: 133340764}
   sound: {fileID: 1148386727}
-  upgradeMesh: {fileID: 602006951793892588, guid: 804d66f11d24c60478c23d43c07900db, type: 3}
+  upgradeMesh: {fileID: -8139750285235462233, guid: d88e0a05efa62cf40bae45a5f64b9bfe, type: 3}
   upgradeMaterial: {fileID: 2100000, guid: d036c416e9c9864418fd34cf1543e61d, type: 2}
-  attackMesh: {fileID: 602006951793892588, guid: 804d66f11d24c60478c23d43c07900db, type: 3}
+  attackMesh: {fileID: 7632420233060837667, guid: f64b6c64989cc5c4c9d79789c5d3a743, type: 3}
   attackMaterail: {fileID: 2100000, guid: d036c416e9c9864418fd34cf1543e61d, type: 2}
   feedMesh: {fileID: 3751257626381771662, guid: 98b8947e21d604a429aaa44f1514f989, type: 3}
   feedMaterail: {fileID: 2100000, guid: d036c416e9c9864418fd34cf1543e61d, type: 2}
@@ -2132,7 +2132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440582751}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -5.24, y: 2.76, z: 4.89}
+  m_LocalPosition: {x: -5.24, y: 2.76, z: 14.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
