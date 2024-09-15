@@ -345,7 +345,7 @@ public class enemyHandler : MonoBehaviour
         this.playerStats.reactivate = true;
     }
 
-    private void UpdateTexts()
+    public void UpdateTexts()
     {
         this.enemyHealth.text = this.enemy.currentHealth.ToString();
         this.enemyLikes.text = this.enemy.currentLike.ToString();

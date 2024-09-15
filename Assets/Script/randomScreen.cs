@@ -30,6 +30,7 @@ public class randomScreen : MonoBehaviour
 
     void Start()
     {
+
         this.sideScreens = new GameObject[3];
 
         genereator = new System.Random();
