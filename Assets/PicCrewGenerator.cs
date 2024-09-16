@@ -36,15 +36,9 @@ public class PicCrewGenerator : MonoBehaviour
             rt.sizeDelta = new Vector2(100, 100);  // Example size, adjust as necessary
             rt.anchoredPosition = new Vector2(0, 0);  // Center the image on the parent
 
-            // Assign the sprite to the Image component
-            /*if (imageSprite != null)
-            {
-                imageComponent.sprite = imageSprite;
-            }*/
             Debug.Log(key);
             _picCrewObjectPairs.Add(key, imageComponent);
         }
-        //indices = new int[PicCrewResources.picCrewFolderPairs.Count];
         RandomizeAllPicCrewAttributes();
     }
 
@@ -64,16 +58,17 @@ public class PicCrewGenerator : MonoBehaviour
         }
     }
 
-    /*public void iterateAttributeUp(List<Sprite> myAttributeList, Image image)
+    public void RandomizePicCrewAttribute(Texture2D[] textures, UnityEngine.UI.Image image,int selectedAttribute)
     {
-        indexList[0]++;
-        image.sprite = myAttributeList[indexList[0]];
-    }*/
+        //image.sprite = Sprite.Create(textures[selectedAttribute], new Rect(0, 0, textures[selectedAttribute].width, textures[selectedAttribute].height), new Vector2(0, 0));
+        Debug.Log(image.sprite + textures[0].name);
+    }
+
     /*void setAttribute(int index)
     {
 
         image.sprite = myAttributeList[];
         Debug.Log(image.sprite + myAttributeList[0].name);
     }*/
-    
+
 }
